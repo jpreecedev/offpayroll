@@ -13,6 +13,7 @@ class CompanyTableViewCell: UITableViewCell {
     
     @IBOutlet weak var companyLogo: UIImageView!
     @IBOutlet weak var companyName: UILabel!
+    @IBOutlet weak var numberOfComments: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,6 +22,7 @@ class CompanyTableViewCell: UITableViewCell {
     
     func configureCell(company: Company) {
         companyName.text = company.name
+        numberOfComments.text = "\(company.commentCount)"
         
         let url = URL(string: "https://logo.clearbit.com/\(company.slug)?size=47")
 

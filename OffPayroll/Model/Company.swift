@@ -12,6 +12,7 @@ class Company {
     
     private var _name: String!
     private var _slug: String!
+    private var _commentCount: Int!
     
     var name :  String {
         return _name
@@ -21,9 +22,14 @@ class Company {
         return _slug
     }
     
-    init(name: String, slug : String) {
+    var commentCount: Int {
+        return _commentCount
+    }
+    
+    init(name: String, slug : String, commentCount: Int) {
         _name = name
         _slug = slug
+        _commentCount = commentCount
     }
     
 }

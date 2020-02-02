@@ -28,7 +28,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             let result = response.result
             if let dict = result.value as? [Dictionary<String, AnyObject>] {
                 for company in dict {
-                    self.companies.append(Company(name: company["name"] as! String, slug: company["slug"] as! String))
+                    let name = company["name"] as! String
+                    let slug = company["slug"] as! String
+                    let commentCount = company["commentCount"] as! Int
+                    self.companies.append(Company(name: name, slug: slug, commentCount: commentCount))
                 }
             }
             self.tableView.reloadData()
@@ -45,7 +48,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let company = companies[indexPath.row]
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "CompanyCell") as? CompanyTableViewCell {
-            cell.configureCell(company: Company(name: company.name, slug: company.slug))
+            cell.configureCell(company: Company(name: company.name, slug: company.slug, commentCount: company.commentCount))
             return cell
         } else {
             return UITableViewCell()
