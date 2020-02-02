@@ -25,7 +25,7 @@ class CompanyTableViewCell: UITableViewCell {
         numberOfComments.text = "\(company.commentCount)"
         
         let url = URL(string: "https://logo.clearbit.com/\(company.slug)?size=47")
-
+        
         DispatchQueue.global().async {
             let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
             DispatchQueue.main.async {
@@ -35,6 +35,7 @@ class CompanyTableViewCell: UITableViewCell {
             }
         }
     }
+    
     
 }
 

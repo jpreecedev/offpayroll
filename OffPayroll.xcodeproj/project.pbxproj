@@ -83,7 +83,6 @@
 				77C6921023E49BC700DFF6B0 /* Assets.xcassets */,
 				77C6921223E49BC700DFF6B0 /* LaunchScreen.storyboard */,
 				77C6921523E49BC700DFF6B0 /* Info.plist */,
-				77CDB77823E6ECBC00745A3C /* CompanyTableViewCell.swift */,
 			);
 			path = OffPayroll;
 			sourceTree = "<group>";
@@ -91,6 +90,7 @@
 		77CDB77723E6E6EB00745A3C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				77CDB77823E6ECBC00745A3C /* CompanyTableViewCell.swift */,
 				77C6920D23E49BC600DFF6B0 /* Main.storyboard */,
 			);
 			path = View;
