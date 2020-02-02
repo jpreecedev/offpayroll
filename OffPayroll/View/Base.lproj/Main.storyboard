@@ -10,8 +10,8 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="OffPayroll" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController restorationIdentifier="MainView" storyboardIdentifier="MainView" id="BYZ-38-t0r" customClass="ViewController" customModule="OffPayroll" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="mainScreen" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -97,6 +97,7 @@
                                             <outlet property="companyLogo" destination="6Os-Vn-10K" id="JT6-zf-Smf"/>
                                             <outlet property="companyName" destination="eZi-rI-1Iv" id="jgx-96-LQQ"/>
                                             <outlet property="numberOfComments" destination="1nl-wL-YYo" id="jpk-2P-skg"/>
+                                            <segue destination="LAd-bQ-Nmy" kind="show" id="B58-iR-FmC"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -105,6 +106,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="oxd-kF-eEj"/>
                     <connections>
                         <outlet property="tableView" destination="zE1-j9-VyY" id="xIn-Pw-iM5"/>
                     </connections>
@@ -112,6 +114,86 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-57.971014492753625" y="138.61607142857142"/>
+        </scene>
+        <!--ClientVC-->
+        <scene sceneID="HkT-YF-sQf">
+            <objects>
+                <viewController id="LAd-bQ-Nmy" customClass="ClientVC" customModule="OffPayroll" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CXq-ZO-dQ3" customClass="ClientDetailsVC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qwJ-5z-7EI">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="79"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ip3-G3-Pct">
+                                        <rect key="frame" x="14" y="24" width="42" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="d9Q-AK-ZHY"/>
+                                            <constraint firstAttribute="width" constant="42" id="xga-z6-FXU"/>
+                                        </constraints>
+                                        <state key="normal" title="Back">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.070547916000000002" green="0.14903247359999999" blue="0.21957555409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="79" id="0jh-O0-Z8f"/>
+                                    <constraint firstItem="ip3-G3-Pct" firstAttribute="top" secondItem="qwJ-5z-7EI" secondAttribute="top" constant="24" id="KON-qR-H2O"/>
+                                    <constraint firstAttribute="bottom" secondItem="ip3-G3-Pct" secondAttribute="bottom" constant="25" id="agu-XI-vBf"/>
+                                    <constraint firstItem="ip3-G3-Pct" firstAttribute="leading" secondItem="qwJ-5z-7EI" secondAttribute="leading" constant="14" id="lTg-HB-Xn8"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PTg-ad-eb9">
+                                <rect key="frame" x="0.0" y="79" width="414" height="1"/>
+                                <color key="backgroundColor" red="0.77640181779999995" green="0.77651482819999995" blue="0.78421932459999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="UPZ-QQ-vag"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="htE-Nf-KOC" customClass="ViewWithDropShadow" customModule="OffPayroll" customModuleProvider="target">
+                                <rect key="frame" x="147" y="15" width="120" height="120"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Building" translatesAutoresizingMaskIntoConstraints="NO" id="vQp-fp-CUS">
+                                        <rect key="frame" x="6" y="8" width="110" height="110"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="110" id="G3i-hm-AA9"/>
+                                            <constraint firstAttribute="height" constant="110" id="KkZ-2X-JcV"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="vQp-fp-CUS" secondAttribute="trailing" constant="6" id="6zg-iZ-kyy"/>
+                                    <constraint firstAttribute="width" constant="120" id="9QB-qt-YTH"/>
+                                    <constraint firstItem="vQp-fp-CUS" firstAttribute="top" secondItem="htE-Nf-KOC" secondAttribute="top" constant="8" id="Eo3-Wp-heW"/>
+                                    <constraint firstItem="vQp-fp-CUS" firstAttribute="leading" secondItem="htE-Nf-KOC" secondAttribute="leading" constant="6" id="PgA-jg-U8f"/>
+                                    <constraint firstAttribute="bottom" secondItem="vQp-fp-CUS" secondAttribute="bottom" constant="8" id="dug-IU-Mu0"/>
+                                    <constraint firstAttribute="height" constant="120" id="nHr-LU-JOC"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="slA-GB-MoB" firstAttribute="trailing" secondItem="PTg-ad-eb9" secondAttribute="trailing" id="1qp-qH-4te"/>
+                            <constraint firstItem="qwJ-5z-7EI" firstAttribute="top" secondItem="slA-GB-MoB" secondAttribute="top" id="3gu-rJ-5WW"/>
+                            <constraint firstItem="htE-Nf-KOC" firstAttribute="top" secondItem="slA-GB-MoB" secondAttribute="top" constant="15" id="5vN-XL-MX9"/>
+                            <constraint firstItem="slA-GB-MoB" firstAttribute="trailing" secondItem="qwJ-5z-7EI" secondAttribute="trailing" id="AKE-fK-tDO"/>
+                            <constraint firstItem="qwJ-5z-7EI" firstAttribute="leading" secondItem="slA-GB-MoB" secondAttribute="leading" id="Bw1-9V-GFB"/>
+                            <constraint firstItem="PTg-ad-eb9" firstAttribute="leading" secondItem="slA-GB-MoB" secondAttribute="leading" id="FC7-QL-Pxv"/>
+                            <constraint firstItem="htE-Nf-KOC" firstAttribute="centerX" secondItem="CXq-ZO-dQ3" secondAttribute="centerX" id="Res-GO-NQX"/>
+                            <constraint firstItem="PTg-ad-eb9" firstAttribute="top" secondItem="qwJ-5z-7EI" secondAttribute="bottom" id="hBx-aH-35Y"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="slA-GB-MoB"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="YHp-hm-c6b"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZnY-NG-kFW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="866.66666666666674" y="136.60714285714286"/>
         </scene>
     </scenes>
     <resources>
