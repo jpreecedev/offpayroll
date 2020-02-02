@@ -1,0 +1,6 @@
+framework module Pods_OffPayroll {
+  umbrella header "Pods-OffPayroll-umbrella.h"
+
+  export *
+  module * { export * }
+}
