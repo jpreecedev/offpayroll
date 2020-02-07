@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MainVC.swift
 //  OffPayroll
 //
 //  Created by Jon Preece on 31/01/2020.
@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -48,11 +48,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let company = companies[indexPath.row]
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "CompanyCell") as? CompanyTableViewCell {
-            cell.configureCell(company: Company(name: company.name, slug: company.slug, commentCount: company.commentCount))
+            cell.configureCell(company: company)
             return cell
-        } else {
-            return UITableViewCell()
         }
+        
+        return UITableViewCell()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination  as? ClientVC {
+            if let cell = sender as? CompanyTableViewCell {
+                vc.company = cell.company
+            }
+        }
+        
     }
 }
 

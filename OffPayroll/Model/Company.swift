@@ -6,13 +6,14 @@
 //  Copyright © 2020 Jon Preece. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class Company {
     
     private var _name: String!
     private var _slug: String!
     private var _commentCount: Int!
+    private var _image : UIImage!
     
     var name :  String {
         return _name
@@ -24,6 +25,18 @@ class Company {
     
     var commentCount: Int {
         return _commentCount
+    }
+    
+    var image : UIImage? {
+        get {
+            if let image = _image {
+                return image
+            }
+            return UIImage(named: "Building")
+        }
+        set {
+            _image = newValue
+        }
     }
     
     init(name: String, slug : String, commentCount: Int) {
