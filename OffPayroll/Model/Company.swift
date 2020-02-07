@@ -32,7 +32,7 @@ class Company {
             if let image = _image {
                 return image
             }
-            return UIImage(named: "Building")
+            return UIImage(named: "building-solid-off")
         }
         set {
             _image = newValue

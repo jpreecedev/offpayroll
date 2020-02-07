@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="64e-35-1SO">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -7,7 +7,75 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--MainVC-->
+        <!--Agents-->
+        <scene sceneID="TCe-Qc-lDH">
+            <objects>
+                <viewController id="T1B-MP-2A7" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cHl-lm-Drv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="MQY-rb-me4"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Agents" image="tab-user-tie-solid-on" selectedImage="tab-user-tie-solid-off" id="GXs-bY-nrW"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hWT-bi-asZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1626" y="563"/>
+        </scene>
+        <!--Contracts-->
+        <scene sceneID="L69-lS-jcy">
+            <objects>
+                <viewController id="E9z-nU-T5t" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hxL-xp-Z6g">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="FXO-pU-njW"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Contracts" image="tab-book-solid-on" selectedImage="tab-book-solid-off" id="g9B-KD-kUA"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JQh-FX-p4U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-741" y="563"/>
+        </scene>
+        <!--Directory-->
+        <scene sceneID="NCe-Fq-zKV">
+            <objects>
+                <viewController id="Vp1-kj-Ipv" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ybh-GX-2UH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="eBw-3k-Ot5"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Directory" image="tab-file-signature-solid-on" selectedImage="tab-file-signature-solid-off" id="Pkl-ne-bZe"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hXQ-pz-5R9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="119" y="563"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="dhm-mT-R0r">
+            <objects>
+                <tabBarController id="64e-35-1SO" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZKn-MG-ikj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="8XQ-8z-1TT"/>
+                        <segue destination="T1B-MP-2A7" kind="relationship" relationship="viewControllers" id="Ib8-4J-Y2B"/>
+                        <segue destination="E9z-nU-T5t" kind="relationship" relationship="viewControllers" id="cKC-8m-d9g"/>
+                        <segue destination="Vp1-kj-Ipv" kind="relationship" relationship="viewControllers" id="Agi-4r-hJC"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rp2-hk-QPZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1187" y="-167"/>
+        </scene>
+        <!--Clients-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController restorationIdentifier="MainView" storyboardIdentifier="MainView" id="BYZ-38-t0r" customClass="MainVC" customModule="OffPayroll" customModuleProvider="target" sceneMemberID="viewController">
@@ -48,7 +116,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="383" height="67"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Building" translatesAutoresizingMaskIntoConstraints="NO" id="6Os-Vn-10K">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="building-solid-off" translatesAutoresizingMaskIntoConstraints="NO" id="6Os-Vn-10K">
                                                     <rect key="frame" x="8" y="8" width="67.333333333333329" height="51"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="6Os-Vn-10K" secondAttribute="height" multiplier="33:25" id="2vF-ej-ti0"/>
@@ -106,14 +174,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="oxd-kF-eEj"/>
+                    <tabBarItem key="tabBarItem" title="Clients" image="tab-building-solid-on" selectedImage="tab-building-solid-off" id="cyb-s1-xQI"/>
                     <connections>
                         <outlet property="tableView" destination="zE1-j9-VyY" id="xIn-Pw-iM5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-57.971014492753625" y="138.61607142857142"/>
+            <point key="canvasLocation" x="-2480" y="563"/>
         </scene>
         <!--ClientVC-->
         <scene sceneID="HkT-YF-sQf">
@@ -158,7 +226,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="htE-Nf-KOC" customClass="ViewWithDropShadow" customModule="OffPayroll" customModuleProvider="target">
                                 <rect key="frame" x="147" y="15" width="120" height="120"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Building" translatesAutoresizingMaskIntoConstraints="NO" id="vQp-fp-CUS">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="building-solid-off" translatesAutoresizingMaskIntoConstraints="NO" id="vQp-fp-CUS">
                                         <rect key="frame" x="6" y="8" width="110" height="110"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="110" id="G3i-hm-AA9"/>
@@ -295,13 +363,21 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZnY-NG-kFW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="866.66666666666674" y="136.60714285714286"/>
+            <point key="canvasLocation" x="-2480" y="1274"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Building" width="448" height="512"/>
         <image name="CommentsIcon" width="22" height="18"/>
+        <image name="building-solid-off" width="320" height="366"/>
         <image name="calendar" width="28" height="26"/>
         <image name="error" width="402" height="402"/>
+        <image name="tab-book-solid-off" width="21.666666030883789" height="25"/>
+        <image name="tab-book-solid-on" width="22" height="25"/>
+        <image name="tab-building-solid-off" width="22" height="25"/>
+        <image name="tab-building-solid-on" width="22" height="25"/>
+        <image name="tab-file-signature-solid-off" width="28" height="25"/>
+        <image name="tab-file-signature-solid-on" width="28" height="25"/>
+        <image name="tab-user-tie-solid-off" width="22" height="25"/>
+        <image name="tab-user-tie-solid-on" width="22" height="25"/>
     </resources>
 </document>

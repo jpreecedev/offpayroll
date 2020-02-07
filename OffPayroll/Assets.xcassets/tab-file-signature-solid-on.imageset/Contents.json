@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "building-solid-off.png",
+      "filename" : "tab-file-signature-solid-on.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "tab-file-signature-solid-on@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "tab-file-signature-solid-on@3x.png",
       "scale" : "3x"
     }
   ],
