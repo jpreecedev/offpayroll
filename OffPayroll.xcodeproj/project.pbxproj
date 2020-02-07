@@ -20,6 +20,9 @@
 		77E700A023E9646400338DB5 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E7009F23E9646400338DB5 /* Comment.swift */; };
 		77E700A223E9CBA100338DB5 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E700A123E9CBA100338DB5 /* CommentTableViewCell.swift */; };
 		77E700A523E9DADC00338DB5 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E700A423E9DADC00338DB5 /* Date.swift */; };
+		77E700A723ED9E9500338DB5 /* AgentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E700A623ED9E9500338DB5 /* AgentsVC.swift */; };
+		77E700A923EDA0F500338DB5 /* AgentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E700A823EDA0F500338DB5 /* AgentTableViewCell.swift */; };
+		77E700AB23EDA13000338DB5 /* FairAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E700AA23EDA13000338DB5 /* FairAgent.swift */; };
 		D0AEFE7D8B94CF6DE4B69E97 /* Pods_OffPayroll.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2A61279C15A5BF0AC7CCEF0 /* Pods_OffPayroll.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +43,9 @@
 		77E7009F23E9646400338DB5 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		77E700A123E9CBA100338DB5 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		77E700A423E9DADC00338DB5 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		77E700A623ED9E9500338DB5 /* AgentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentsVC.swift; sourceTree = "<group>"; };
+		77E700A823EDA0F500338DB5 /* AgentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentTableViewCell.swift; sourceTree = "<group>"; };
+		77E700AA23EDA13000338DB5 /* FairAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FairAgent.swift; sourceTree = "<group>"; };
 		A1B3B1B93E8359F5DEDA1744 /* Pods-OffPayroll.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OffPayroll.release.xcconfig"; path = "Target Support Files/Pods-OffPayroll/Pods-OffPayroll.release.xcconfig"; sourceTree = "<group>"; };
 		C2A61279C15A5BF0AC7CCEF0 /* Pods_OffPayroll.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OffPayroll.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -101,6 +107,7 @@
 		77CDB77723E6E6EB00745A3C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				77E700A823EDA0F500338DB5 /* AgentTableViewCell.swift */,
 				77CDB77823E6ECBC00745A3C /* CompanyTableViewCell.swift */,
 				77E700A123E9CBA100338DB5 /* CommentTableViewCell.swift */,
 				77C6920D23E49BC600DFF6B0 /* Main.storyboard */,
@@ -114,6 +121,7 @@
 			children = (
 				77CDB77B23E7085900745A3C /* Company.swift */,
 				77E7009F23E9646400338DB5 /* Comment.swift */,
+				77E700AA23EDA13000338DB5 /* FairAgent.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -131,6 +139,7 @@
 			children = (
 				77C3760923E7445400E51C09 /* ClientVC.swift */,
 				77C6920B23E49BC600DFF6B0 /* MainVC.swift */,
+				77E700A623ED9E9500338DB5 /* AgentsVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -260,10 +269,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				77CDB77C23E7085900745A3C /* Company.swift in Sources */,
+				77E700A923EDA0F500338DB5 /* AgentTableViewCell.swift in Sources */,
 				77E700A523E9DADC00338DB5 /* Date.swift in Sources */,
 				77C3760623E7381300E51C09 /* ViewWithDropShadow.swift in Sources */,
 				77C6920C23E49BC600DFF6B0 /* MainVC.swift in Sources */,
+				77E700AB23EDA13000338DB5 /* FairAgent.swift in Sources */,
 				77C6920823E49BC600DFF6B0 /* AppDelegate.swift in Sources */,
+				77E700A723ED9E9500338DB5 /* AgentsVC.swift in Sources */,
 				77E700A223E9CBA100338DB5 /* CommentTableViewCell.swift in Sources */,
 				77C6920A23E49BC600DFF6B0 /* SceneDelegate.swift in Sources */,
 				77C3760A23E7445400E51C09 /* ClientVC.swift in Sources */,

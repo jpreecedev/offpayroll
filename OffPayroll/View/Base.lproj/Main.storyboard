@@ -10,14 +10,130 @@
         <!--Agents-->
         <scene sceneID="TCe-Qc-lDH">
             <objects>
-                <viewController id="T1B-MP-2A7" sceneMemberID="viewController">
+                <viewController id="T1B-MP-2A7" customClass="AgentsVC" customModule="OffPayroll" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cHl-lm-Drv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GGV-N3-p9v">
+                                <rect key="frame" x="0.0" y="44" width="414" height="80"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="OffPayroll.org.uk" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mfn-yy-vPb">
+                                        <rect key="frame" x="8" y="8" width="398" height="42"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Find fairer IR35 clients" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p7S-bu-Ail">
+                                        <rect key="frame" x="20" y="46" width="374" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.070547916000000002" green="0.14903247359999999" blue="0.21957555409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="kJS-3Y-M7W"/>
+                                </constraints>
+                            </view>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qzj-YM-q3L">
+                                <rect key="frame" x="347" y="137" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="onTintColor" red="0.070547916000000002" green="0.14903247359999999" blue="0.21957555409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="switchValueChanged:" destination="T1B-MP-2A7" eventType="valueChanged" id="9pi-8p-wqx"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Showing only fair IR35 agents" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ks7-IB-Gvh">
+                                <rect key="frame" x="20" y="142" width="227" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="fIF-FC-uYr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="w9M-oR-03N">
+                                <rect key="frame" x="0.0" y="179" width="414" height="634"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="AgentTableViewCell" focusStyle="custom" rowHeight="67" id="qDh-38-zwX" userLabel="AgentCell" customClass="AgentTableViewCell" customModule="OffPayroll" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="67"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qDh-38-zwX" id="mMs-B2-nXa">
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="67"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="building-solid-off" translatesAutoresizingMaskIntoConstraints="NO" id="P5i-Ka-hYH">
+                                                    <rect key="frame" x="8" y="8" width="67.333333333333329" height="51"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="51" id="VaU-cj-5Lv"/>
+                                                        <constraint firstAttribute="width" constant="67.333333333333329" id="gxG-tj-gIR"/>
+                                                        <constraint firstAttribute="width" secondItem="P5i-Ka-hYH" secondAttribute="height" multiplier="33:25" id="p24-NN-i6h"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="center" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="43p-V8-uyP">
+                                                    <rect key="frame" x="83.333333333333343" y="16" width="291.66666666666663" height="35"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Evolution" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WBs-LL-VCS">
+                                                            <rect key="frame" x="0.0" y="0.0" width="68" height="18"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="18" id="Fjq-8j-2mL"/>
+                                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="200" id="MLg-xR-3YO"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Collaborating with clients" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ef-Rd-ffh">
+                                                            <rect key="frame" x="0.0" y="18" width="163.33333333333334" height="17"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="43p-V8-uyP" firstAttribute="centerY" secondItem="mMs-B2-nXa" secondAttribute="centerY" id="4AX-Lw-XVN"/>
+                                                <constraint firstItem="P5i-Ka-hYH" firstAttribute="top" secondItem="mMs-B2-nXa" secondAttribute="top" constant="8" id="GIF-0T-sqI"/>
+                                                <constraint firstAttribute="bottom" secondItem="P5i-Ka-hYH" secondAttribute="bottom" constant="8" id="Qzm-40-vLP"/>
+                                                <constraint firstItem="P5i-Ka-hYH" firstAttribute="leading" secondItem="mMs-B2-nXa" secondAttribute="leading" constant="8" id="V7W-HF-hrd"/>
+                                                <constraint firstItem="43p-V8-uyP" firstAttribute="leading" secondItem="P5i-Ka-hYH" secondAttribute="trailing" constant="8" id="fSa-oJ-VhQ"/>
+                                                <constraint firstAttribute="trailing" secondItem="43p-V8-uyP" secondAttribute="trailing" constant="8" id="g0L-uE-pDz"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="agentDescription" destination="7ef-Rd-ffh" id="yMw-gW-1jJ"/>
+                                            <outlet property="agentImage" destination="P5i-Ka-hYH" id="Mlm-TL-Bk5"/>
+                                            <outlet property="agentName" destination="WBs-LL-VCS" id="Jc3-lg-5jo"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Ks7-IB-Gvh" firstAttribute="leading" secondItem="MQY-rb-me4" secondAttribute="leading" constant="20" id="5kQ-uI-ZDU"/>
+                            <constraint firstItem="GGV-N3-p9v" firstAttribute="top" secondItem="MQY-rb-me4" secondAttribute="top" id="7UG-rK-gso"/>
+                            <constraint firstItem="w9M-oR-03N" firstAttribute="top" secondItem="Ks7-IB-Gvh" secondAttribute="bottom" constant="16" id="G14-QL-6j1"/>
+                            <constraint firstItem="w9M-oR-03N" firstAttribute="leading" secondItem="MQY-rb-me4" secondAttribute="leading" id="Wkv-Lk-jfC"/>
+                            <constraint firstItem="GGV-N3-p9v" firstAttribute="trailing" secondItem="MQY-rb-me4" secondAttribute="trailing" id="bGg-e9-7Le"/>
+                            <constraint firstItem="MQY-rb-me4" firstAttribute="bottom" secondItem="w9M-oR-03N" secondAttribute="bottom" id="dJg-Uv-09X"/>
+                            <constraint firstItem="GGV-N3-p9v" firstAttribute="leading" secondItem="MQY-rb-me4" secondAttribute="leading" id="ew4-Pa-gUn"/>
+                            <constraint firstItem="MQY-rb-me4" firstAttribute="trailing" secondItem="w9M-oR-03N" secondAttribute="trailing" id="s25-MU-Q8D"/>
+                            <constraint firstItem="Ks7-IB-Gvh" firstAttribute="top" secondItem="GGV-N3-p9v" secondAttribute="bottom" constant="18" id="yET-pG-0Ag"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="MQY-rb-me4"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Agents" image="tab-user-tie-solid-on" selectedImage="tab-user-tie-solid-off" id="GXs-bY-nrW"/>
+                    <connections>
+                        <outlet property="activeViewLabel" destination="Ks7-IB-Gvh" id="2p6-h9-rkR"/>
+                        <outlet property="activeViewSwitch" destination="Qzj-YM-q3L" id="PBb-9r-L8C"/>
+                        <outlet property="tableView" destination="w9M-oR-03N" id="bxK-mi-67n"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hWT-bi-asZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
