@@ -8,15 +8,22 @@
 
 import UIKit
 
+typealias ImageDownloadCompletion = (_ errMsg: String?, _ logo: UIImage) -> Void
+
 class AgentTableViewCell: UITableViewCell {
     
     @IBOutlet weak var agentImage: UIImageView!
     @IBOutlet weak var agentName: UILabel!
     @IBOutlet weak var agentDescription: UILabel!
     
-    private var _agent: FairAgent!
+    private var _fairAgent: FairAgent!
+    private var _agent: Agent!
     
-    var agent: FairAgent {
+    var fairAgent: FairAgent {
+        return _fairAgent
+    }
+    
+    var agent: Agent {
         return _agent
     }
     
@@ -25,31 +32,45 @@ class AgentTableViewCell: UITableViewCell {
         // Initialization code
     }
     
-    func configureCell(agent: FairAgent) {
-        
+    func configureCell(agent: Agent) {
         _agent = agent
         agentName.text = agent.name
-        agentDescription.text = agent.description
         
-        var url: URL?
-        if (agent.customImageUrl == nil) {
-            url = URL(string: "https://logo.clearbit.com/\(agent.slug)?size=141")
+        agentDescription.text = ""
+        agentImage.image = nil
+    }
+    
+    func configureCell(fairAgent: FairAgent) {
+        
+        _fairAgent = fairAgent
+        agentName.text = fairAgent.name
+        agentDescription.text = fairAgent.description
+        agentImage.isHidden = false
+        
+        var url: URL!
+        if (fairAgent.customImageUrl == nil) {
+            url = URL(string: "https://logo.clearbit.com/\(fairAgent.slug)?size=141")
         } else {
-            url = URL(string: agent.customImageUrl!)
+            url = URL(string: fairAgent.customImageUrl!)
         }
         
-        if let url = url {
-            DispatchQueue.global().async {
-                let data = try? Data(contentsOf: url)
-                DispatchQueue.main.async {
-                    if let data = data, let companyLogo = UIImage(data: data) {
-                        self.agentImage.image = companyLogo
-                        self._agent.image = companyLogo
-                    }
+        downloadImage(url: url, onComplete: { (err, data) in guard err != nil else {
+            self.agentImage.image = data
+            self._fairAgent.image = data
+            return
+            }
+        })
+    }
+    
+    func downloadImage(url: URL, onComplete: @escaping ImageDownloadCompletion) {
+        DispatchQueue.global().async {
+            let data = try? Data(contentsOf: url)
+            DispatchQueue.main.async {
+                if let data = data, let companyLogo = UIImage(data: data) {
+                    onComplete(nil, companyLogo)
                 }
             }
         }
-        
     }
     
 }
