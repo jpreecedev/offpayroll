@@ -1,23 +1,18 @@
 //
-//  AgentsVC.swift
+//  ConsultanciesVC.swift
 //  OffPayroll
 //
-//  Created by Jon Preece on 07/02/2020.
+//  Created by Jon Preece on 08/02/2020.
 //  Copyright © 2020 Jon Preece. All rights reserved.
 //
 
 import UIKit
 import Alamofire
 
-typealias AgentsAPIRequestCompletion = (_ errMsg: String?, _ data: Array<AnyObject>) -> Void
-
-class AgentsVC : UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ConsultanciesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var activeViewSwitch: UISwitch!
-    @IBOutlet weak var activeViewLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
-    var allAgents = [Agent]()
     var fairAgents = [FairAgent]()
     var indicator = UIActivityIndicatorView()
     
@@ -41,7 +36,7 @@ class AgentsVC : UIViewController, UITableViewDelegate, UITableViewDataSource {
                 let customImageUrl = fairAgent["customLogoUrl"] as? String
                 let slug = fairAgent["slug"] as! String
                 
-                if (!isConsultancy) {
+                if (isConsultancy) {
                     self.fairAgents.append(FairAgent(name: name, isConsultancy: isConsultancy, description: description, customImageUrl: customImageUrl, slug: slug))
                 }
             }
@@ -50,34 +45,16 @@ class AgentsVC : UIViewController, UITableViewDelegate, UITableViewDataSource {
             self.stopActivityIndicator()
             self.tableView.isHidden = false
         }
-        
-        getDataFromAPI(url: URL(string: "https://offpayroll.org.uk/api/agents")!) { (err, data) in
-            for agent in data {
-                let name = agent["name"] as! String
-                let reviewSituations = agent["reviewSituations"] as! [String]
-                
-                self.allAgents.append(Agent(name: name, reviewSituations: reviewSituations))
-            }
-        }
-    }
-    
-    @IBAction func switchValueChanged(_ sender: UISwitch) {
-        activeViewLabel.text = sender.isOn ? "Showing only fair IR35 agents" : "Showing all agents"
-        tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return activeViewSwitch.isOn ? fairAgents.count : allAgents.count
+        return fairAgents.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "AgentTableViewCell") as? AgentTableViewCell {
             cell.layoutMargins = UIEdgeInsets.zero
-            if activeViewSwitch.isOn {
-                cell.configureCell(fairAgent: fairAgents[indexPath.row])
-            } else {
-                cell.configureCell(agent: allAgents[indexPath.row])
-            }
+            cell.configureCell(fairAgent: fairAgents[indexPath.row])
             return cell
         }
         
@@ -108,4 +85,5 @@ class AgentsVC : UIViewController, UITableViewDelegate, UITableViewDataSource {
         indicator.stopAnimating()
         indicator.hidesWhenStopped = true
     }
+    
 }

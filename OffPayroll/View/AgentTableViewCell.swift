@@ -27,11 +27,6 @@ class AgentTableViewCell: UITableViewCell {
         return _agent
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
     func configureCell(agent: Agent) {
         _agent = agent
         agentName.text = agent.name
