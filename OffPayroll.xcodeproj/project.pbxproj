@@ -140,9 +140,9 @@
 		77F4CF6323E8ACE20042D955 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				77E700A623ED9E9500338DB5 /* AgentsVC.swift */,
 				77C3760923E7445400E51C09 /* ClientVC.swift */,
 				77C6920B23E49BC600DFF6B0 /* MainVC.swift */,
-				77E700A623ED9E9500338DB5 /* AgentsVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";

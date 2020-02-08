@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-typealias APIRequestCompletion = (_ errMsg: String?, _ data: Array<AnyObject>) -> Void
+typealias AgentsAPIRequestCompletion = (_ errMsg: String?, _ data: Array<AnyObject>) -> Void
 
 class AgentsVC : UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -19,14 +19,21 @@ class AgentsVC : UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var allAgents = [Agent]()
     var fairAgents = [FairAgent]()
+    var indicator = UIActivityIndicatorView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.tableFooterView = UIView()
+        tableView.layoutMargins = UIEdgeInsets.zero
+        tableView.separatorInset = UIEdgeInsets.zero
+        tableView.isHidden = true
         
-        getDataFromAPI(url: URL(string: "https://offpayroll.org.uk/api/agents/fairagents")!, onComplete: { (err, data) in guard err != nil else {
+        startActivityIndicator()
+        
+        getDataFromAPI(url: URL(string: "https://offpayroll.org.uk/api/agents/fairagents")!) { (err, data) in
             for fairAgent in data {
                 let name = fairAgent["name"] as! String
                 let isConsultancy = fairAgent["isConsultancy"] as! Bool
@@ -38,22 +45,18 @@ class AgentsVC : UIViewController, UITableViewDelegate, UITableViewDataSource {
             }
             
             self.tableView.reloadData()
-            return
-            }
-        })
+            self.stopActivityIndicator()
+            self.tableView.isHidden = false
+        }
         
-        getDataFromAPI(url: URL(string: "https://offpayroll.org.uk/api/agents")!, onComplete: { (err, data) in guard err != nil else {
+        getDataFromAPI(url: URL(string: "https://offpayroll.org.uk/api/agents")!) { (err, data) in
             for agent in data {
                 let name = agent["name"] as! String
                 let reviewSituations = agent["reviewSituations"] as! [String]
                 
                 self.allAgents.append(Agent(name: name, reviewSituations: reviewSituations))
             }
-            
-            self.tableView.reloadData()
-            return
-            }
-        })
+        }
     }
     
     @IBAction func switchValueChanged(_ sender: UISwitch) {
@@ -67,6 +70,7 @@ class AgentsVC : UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "AgentTableViewCell") as? AgentTableViewCell {
+            cell.layoutMargins = UIEdgeInsets.zero
             if activeViewSwitch.isOn {
                 cell.configureCell(fairAgent: fairAgents[indexPath.row])
             } else {
@@ -78,7 +82,7 @@ class AgentsVC : UIViewController, UITableViewDelegate, UITableViewDataSource {
         return UITableViewCell()
     }
     
-    func getDataFromAPI(url: URL, onComplete: @escaping APIRequestCompletion) {
+    func getDataFromAPI(url: URL, onComplete: @escaping AgentsAPIRequestCompletion) {
         Alamofire.request(url).responseJSON {
             response in
             let result = response.result
@@ -86,5 +90,20 @@ class AgentsVC : UIViewController, UITableViewDelegate, UITableViewDataSource {
                 onComplete(nil, dict)
             }
         }
+    }
+    
+    func startActivityIndicator() {
+        indicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))
+        indicator.style = UIActivityIndicatorView.Style.large
+        indicator.center = self.view.center
+        self.view.addSubview(indicator)
+        
+        indicator.startAnimating()
+        indicator.backgroundColor = .white
+    }
+    
+    func stopActivityIndicator() {
+        indicator.stopAnimating()
+        indicator.hidesWhenStopped = true
     }
 }

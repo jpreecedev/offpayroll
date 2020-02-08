@@ -9,6 +9,8 @@
 import UIKit
 import Alamofire
 
+typealias CompanyDetailsAPIRequestCompletion = (_ errMsg: String?, _ data: Array<AnyObject>) -> Void
+
 class ClientVC: UIViewController, UITableViewDelegate, UITableViewDataSource  {
     
     @IBOutlet weak var selectedLabel: UILabel!
@@ -18,6 +20,7 @@ class ClientVC: UIViewController, UITableViewDelegate, UITableViewDataSource  {
     private var _company: Company!
     
     var comments = [Comment]()
+    var indicator = UIActivityIndicatorView()
     
     var company: Company {
         get {
@@ -33,27 +36,29 @@ class ClientVC: UIViewController, UITableViewDelegate, UITableViewDataSource  {
         
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.tableFooterView = UIView()
+        tableView.layoutMargins = UIEdgeInsets.zero
+        tableView.separatorInset = UIEdgeInsets.zero
+        tableView.isHidden = true
+        selectedLabel.isHidden = true
+        
+        startActivityIndicator()
         
         selectedLabel.text = _company.name
         companyLogo.image = _company.image
         
-        let url = URL(string: "https://offpayroll.org.uk/api/companies/\(_company.slug)")!
-        
-        Alamofire.request(url).responseJSON {
-            response in
-            let result = response.result
-            if let dict = result.value as? Dictionary<String, AnyObject> {
-                if  let reviews = dict["reviews"] as? Array<AnyObject>  {
-                    for review in reviews {
-                        let dateSubmitted = Date.FromISOString(dateString: review["dateSubmitted"] as! String)
-                        let situation = review["situation"] as! String
-                        let situationOtherDetails = review["situationOtherDetails"] as! String
-                        let comments = "\"\((review["comments"] as! String).trimmingCharacters(in: .whitespacesAndNewlines))\""
-                        self.comments.append(Comment(situation: situation, situationOtherDetails: situationOtherDetails, comments: comments, dateSubmitted: dateSubmitted))
-                    }
-                }
-                self.tableView.reloadData()
+        getDataFromAPI(url: URL(string: "https://offpayroll.org.uk/api/companies/\(_company.slug)")!) { (err, data) in
+            for review in data {
+                let dateSubmitted = Date.FromISOString(dateString: review["dateSubmitted"] as! String)
+                let situation = review["situation"] as! String
+                let situationOtherDetails = review["situationOtherDetails"] as! String
+                let comments = "\"\((review["comments"] as! String).trimmingCharacters(in: .whitespacesAndNewlines))\""
+                self.comments.append(Comment(situation: situation, situationOtherDetails: situationOtherDetails, comments: comments, dateSubmitted: dateSubmitted))
             }
+            self.tableView.reloadData()
+            self.stopActivityIndicator()
+            self.tableView.isHidden = false
+            self.selectedLabel.isHidden = false
         }
     }
     
@@ -69,11 +74,39 @@ class ClientVC: UIViewController, UITableViewDelegate, UITableViewDataSource  {
         let comment = comments[indexPath.row]
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "CommentTableViewCell") as? CommentTableViewCell {
+            cell.layoutMargins = UIEdgeInsets.zero
             cell.configureCell(comment: comment)
             return cell
         }
         
         return UITableViewCell()
+    }
+    
+    func getDataFromAPI(url: URL, onComplete: @escaping CompanyDetailsAPIRequestCompletion) {
+        Alamofire.request(url).responseJSON {
+            response in
+            let result = response.result
+            if let dict = result.value as? Dictionary<String, AnyObject> {
+                if  let reviews = dict["reviews"] as? Array<AnyObject>  {
+                    onComplete(nil, reviews)
+                }
+            }
+        }
+    }
+    
+    func startActivityIndicator() {
+        indicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))
+        indicator.style = UIActivityIndicatorView.Style.large
+        indicator.center = self.view.center
+        self.view.addSubview(indicator)
+
+        indicator.startAnimating()
+        indicator.backgroundColor = .white
+    }
+    
+    func stopActivityIndicator() {
+        indicator.stopAnimating()
+        indicator.hidesWhenStopped = true
     }
     
 }
