@@ -17,6 +17,21 @@ class AgentDetailsVC: UIViewController {
     @IBOutlet weak var companyLogo: UIImageView!
     @IBOutlet weak var companyName: UILabel!
     @IBOutlet weak var segmentCtrl: UISegmentedControl!
+
+    @IBOutlet weak var specialismsHeaderLabel: UILabel!
+    @IBOutlet weak var specialismsLabel: UILabel!
+    @IBOutlet weak var locationsHeaderLabel: UILabel!
+    @IBOutlet weak var locationsLabel: UILabel!
+    @IBOutlet weak var statusDeterminationHeaderLabel: UILabel!
+    @IBOutlet weak var statusDeterminationLabel: UILabel!
+    @IBOutlet weak var thirdPartiesHeaderLabel: UILabel!
+    @IBOutlet weak var thirdPartiesLabel: UILabel!
+    @IBOutlet weak var appealsProcessHeaderLabel: UILabel!
+    @IBOutlet weak var appealsProcessLabel: UILabel!
+    @IBOutlet weak var insurancesHeaderLabel: UILabel!
+    @IBOutlet weak var insurancesLabel: UILabel!
+    @IBOutlet weak var approachHeaderLabel: UILabel!
+    @IBOutlet weak var approachLabel: UILabel!
     
     private var _agent: FairAgent!
     var indicator = UIActivityIndicatorView()
@@ -28,6 +43,12 @@ class AgentDetailsVC: UIViewController {
         set {
             _agent = newValue
         }
+    }
+    
+    func toggleControl(headerLabel: UILabel!, bodyLabel: UILabel!, value: String?) {
+        headerLabel.isHidden = value == nil
+        bodyLabel.isHidden = value == nil
+        bodyLabel.text = value
     }
     
     override func viewDidLoad() {
@@ -43,6 +64,14 @@ class AgentDetailsVC: UIViewController {
             
             self.companyLogo.image = self.agent.image
             self.companyName.text = self.agent.name
+            
+            self.toggleControl(headerLabel: self.specialismsHeaderLabel, bodyLabel: self.specialismsLabel, value: self.agent.specialisms)
+            self.toggleControl(headerLabel: self.locationsHeaderLabel, bodyLabel: self.locationsLabel, value: self.agent.locations)
+            self.toggleControl(headerLabel: self.statusDeterminationHeaderLabel, bodyLabel: self.statusDeterminationLabel, value: self.agent.determinationMethod)
+            self.toggleControl(headerLabel: self.thirdPartiesHeaderLabel, bodyLabel: self.thirdPartiesLabel, value: self.agent.thirdParties)
+            self.toggleControl(headerLabel: self.appealsProcessHeaderLabel, bodyLabel: self.appealsProcessLabel, value: self.agent.appealsProcess)
+            self.toggleControl(headerLabel: self.insurancesHeaderLabel, bodyLabel: self.insurancesLabel, value: self.agent.insurances)
+            self.toggleControl(headerLabel: self.approachHeaderLabel, bodyLabel: self.approachLabel, value: self.agent.examples)
             
             self.stopActivityIndicator()
         }
