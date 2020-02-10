@@ -1,5 +1,5 @@
 //
-//  ClientVC.swift
+//  ClientDetailsVC.swift
 //  OffPayroll
 //
 //  Created by Jon Preece on 02/02/2020.
@@ -11,7 +11,7 @@ import Alamofire
 
 typealias CompanyDetailsAPIRequestCompletion = (_ errMsg: String?, _ data: Array<AnyObject>) -> Void
 
-class ClientVC: UIViewController, UITableViewDelegate, UITableViewDataSource  {
+class ClientDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSource  {
     
     @IBOutlet weak var selectedLabel: UILabel!
     @IBOutlet weak var companyLogo: UIImageView!

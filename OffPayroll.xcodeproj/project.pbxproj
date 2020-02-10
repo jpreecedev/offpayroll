@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7755F1F823EFF2120058A720 /* AgentDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7755F1F723EFF2120058A720 /* AgentDetailsVC.swift */; };
+		7755F1FB23F015B50058A720 /* FairAgentMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7755F1FA23F015B50058A720 /* FairAgentMapper.swift */; };
 		775AB94A23EF02A30068FB6B /* ConsultanciesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775AB94923EF02A30068FB6B /* ConsultanciesVC.swift */; };
 		775AB94C23EF08390068FB6B /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775AB94B23EF08390068FB6B /* NotificationView.swift */; };
 		77C3760623E7381300E51C09 /* ViewWithDropShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C3760523E7381300E51C09 /* ViewWithDropShadow.swift */; };
@@ -31,6 +33,8 @@
 
 /* Begin PBXFileReference section */
 		01A9F52AE9908B04392473F5 /* Pods-OffPayroll.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OffPayroll.debug.xcconfig"; path = "Target Support Files/Pods-OffPayroll/Pods-OffPayroll.debug.xcconfig"; sourceTree = "<group>"; };
+		7755F1F723EFF2120058A720 /* AgentDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentDetailsVC.swift; sourceTree = "<group>"; };
+		7755F1FA23F015B50058A720 /* FairAgentMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FairAgentMapper.swift; sourceTree = "<group>"; };
 		775AB94923EF02A30068FB6B /* ConsultanciesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultanciesVC.swift; sourceTree = "<group>"; };
 		775AB94B23EF08390068FB6B /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		77C3760523E7381300E51C09 /* ViewWithDropShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewWithDropShadow.swift; sourceTree = "<group>"; };
@@ -76,6 +80,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7755F1F923F015A80058A720 /* Mappers */ = {
+			isa = PBXGroup;
+			children = (
+				7755F1FA23F015B50058A720 /* FairAgentMapper.swift */,
+			);
+			path = Mappers;
+			sourceTree = "<group>";
+		};
 		77C691FB23E49BC600DFF6B0 = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +109,7 @@
 		77C6920623E49BC600DFF6B0 /* OffPayroll */ = {
 			isa = PBXGroup;
 			children = (
+				7755F1F923F015A80058A720 /* Mappers */,
 				77E700A323E9DACF00338DB5 /* Extensions */,
 				77F4CF6323E8ACE20042D955 /* Controllers */,
 				77CDB77A23E7084800745A3C /* Model */,
@@ -149,6 +162,7 @@
 				77C3760923E7445400E51C09 /* ClientVC.swift */,
 				775AB94923EF02A30068FB6B /* ConsultanciesVC.swift */,
 				77C6920B23E49BC600DFF6B0 /* MainVC.swift */,
+				7755F1F723EFF2120058A720 /* AgentDetailsVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -283,6 +297,7 @@
 				775AB94C23EF08390068FB6B /* NotificationView.swift in Sources */,
 				77C3760623E7381300E51C09 /* ViewWithDropShadow.swift in Sources */,
 				77C6920C23E49BC600DFF6B0 /* MainVC.swift in Sources */,
+				7755F1FB23F015B50058A720 /* FairAgentMapper.swift in Sources */,
 				77E700AB23EDA13000338DB5 /* FairAgent.swift in Sources */,
 				77C6920823E49BC600DFF6B0 /* AppDelegate.swift in Sources */,
 				775AB94A23EF02A30068FB6B /* ConsultanciesVC.swift in Sources */,
@@ -291,6 +306,7 @@
 				77E700A223E9CBA100338DB5 /* CommentTableViewCell.swift in Sources */,
 				77C6920A23E49BC600DFF6B0 /* SceneDelegate.swift in Sources */,
 				77C3760A23E7445400E51C09 /* ClientVC.swift in Sources */,
+				7755F1F823EFF2120058A720 /* AgentDetailsVC.swift in Sources */,
 				77E700A023E9646400338DB5 /* Comment.swift in Sources */,
 				77CDB77923E6ECBC00745A3C /* CompanyTableViewCell.swift in Sources */,
 			);

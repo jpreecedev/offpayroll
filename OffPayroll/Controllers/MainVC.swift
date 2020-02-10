@@ -72,7 +72,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.destination  as? ClientVC {
+        if let vc = segue.destination  as? ClientDetailsVC {
             if let cell = sender as? CompanyTableViewCell {
                 vc.company = cell.company
             }

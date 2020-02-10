@@ -13,9 +13,19 @@ class FairAgent {
     private var _name: String!
     private var _slug: String!
     private var _image: UIImage!
-    private var _description: String!
+    private var _customLogoUrl: String?
+    private var _websiteUrl: String?
+    private var _shortDescription: String!
+    private var _specialisms: String?
+    private var _locations: String?
+    private var _determinationMethod: String?
+    private var _thirdParties: String?
+    private var _appealsProcess: String?
+    private var _insurances: String?
+    private var _examples: String?
+    private var _jobSearchName: String?
+    private var _reviewSearchName: String?
     private var _isConsultancy: Bool!
-    private var _customImageUrl: String?
     
     var image : UIImage? {
         get {
@@ -29,27 +39,121 @@ class FairAgent {
         }
     }
     
-    var description: String {
-        return _description
+    var shortDescription: String {
+        return _shortDescription
     }
     
     var name: String {
         return _name
     }
     
-    var customImageUrl: String? {
-        return _customImageUrl
+    var customLogoUrl: String? {
+        get {
+            return _customLogoUrl
+        }
+        set {
+            _customLogoUrl = newValue
+        }
     }
     
     var slug: String {
         return _slug
     }
     
-    init(name: String, isConsultancy: Bool, description: String, customImageUrl: String?, slug: String) {
+    var specialisms: String? {
+        get {
+            return _specialisms
+        }
+        set {
+            _specialisms = newValue
+        }
+    }
+    
+    var locations: String? {
+        get {
+            return _locations
+        }
+        set {
+            _locations = newValue
+        }
+    }
+    
+    var determinationMethod: String? {
+        get {
+            return _determinationMethod
+        }
+        set {
+            _determinationMethod = newValue
+        }
+    }
+    
+    var thirdParties: String? {
+        get {
+            return _thirdParties
+        }
+        set {
+            _thirdParties = newValue
+        }
+    }
+    
+    var appealsProcess: String? {
+        get {
+            return _appealsProcess
+        }
+        set {
+            _appealsProcess = newValue
+        }
+    }
+    
+    var insurances: String? {
+        get {
+            return _insurances
+        }
+        set {
+            _insurances = newValue
+        }
+    }
+    
+    var examples: String? {
+        get {
+            return _examples
+        }
+        set {
+            _examples = newValue
+        }
+    }
+    
+    var jobSearchName: String? {
+        get {
+            return _jobSearchName
+        }
+        set {
+            _jobSearchName = newValue
+        }
+    }
+    
+    var reviewSearchName: String? {
+        get {
+            return _reviewSearchName
+        }
+        set {
+            _reviewSearchName = newValue
+        }
+    }
+    
+    var isConsultancy: Bool {
+        get {
+            return _isConsultancy
+        }
+        set {
+            _isConsultancy = newValue
+        }
+    }
+    
+    init(name: String, isConsultancy: Bool, shortDescription: String, slug: String) {
         _name = name
         _isConsultancy = isConsultancy
-        _description = description
-        _customImageUrl = customImageUrl
+        _shortDescription = shortDescription
         _slug = slug
     }
     
