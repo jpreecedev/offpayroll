@@ -326,6 +326,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Contracts" image="tab-book-solid-on" selectedImage="tab-book-solid-off" id="g9B-KD-kUA"/>
                     <connections>
+                        <outlet property="contractsTabBarItem" destination="g9B-KD-kUA" id="XNk-7d-KG7"/>
                         <outlet property="tableView" destination="293-Ts-q8i" id="cgy-s8-WtA"/>
                     </connections>
                 </viewController>

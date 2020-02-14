@@ -14,6 +14,7 @@ typealias ContractsAPIRequestCompletion = (_ errMsg: String?, _ data: Array<AnyO
 class ContractsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var contractsTabBarItem: UITabBarItem!
     
     var indicator = UIActivityIndicatorView()
     var contracts = Dictionary<String, [Contract]>()
@@ -54,6 +55,8 @@ class ContractsVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
             }
             
             self.contracts = Dictionary(grouping: contracts, by: { Date.ToFormattedDateString(date: $0.datePosted!) })
+            self.contractsTabBarItem.badgeValue = "\(contracts.count)"
+            self.contractsTabBarItem.badgeColor = UIColor(red: 40/255, green:167/255, blue:69/255, alpha: 1)
             self.tableView.reloadData()
             self.stopActivityIndicator()
             self.tableView.isHidden = false
