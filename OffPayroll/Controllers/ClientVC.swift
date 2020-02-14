@@ -49,7 +49,7 @@ class ClientDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         
         getDataFromAPI(url: URL(string: "https://offpayroll.org.uk/api/companies/\(_company.slug)")!) { (err, data) in
             for review in data {
-                let dateSubmitted = Date.FromISOString(dateString: review["dateSubmitted"] as! String)
+                let dateSubmitted = Date.FromISOString(dateString: review["dateSubmitted"] as! String, format: "yyyy-MM-dd'T'HH:mm:ss.SSS")
                 let situation = review["situation"] as! String
                 let situationOtherDetails = review["situationOtherDetails"] as! String
                 let comments = "\"\((review["comments"] as! String).trimmingCharacters(in: .whitespacesAndNewlines))\""

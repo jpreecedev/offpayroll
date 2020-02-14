@@ -16,7 +16,7 @@ struct AgentDetailsResult {
     var comments: [Comment]
 }
 
-class AgentDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class AgentDetailsVC: UIViewController {
     
     @IBOutlet weak var backBtn: UIButton!
     @IBOutlet weak var companyLogo: UIImageView!
@@ -38,7 +38,6 @@ class AgentDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var approachHeaderLabel: UILabel!
     @IBOutlet weak var approachLabel: UILabel!
     
-    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var scrollView: UIScrollView!
     
     private var _agent: FairAgent!
@@ -67,17 +66,10 @@ class AgentDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         companyName.text = _agent.name
         companyLogo.image = _agent.image
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.tableFooterView = UIView()
-        tableView.layoutMargins = UIEdgeInsets.zero
-        tableView.separatorInset = UIEdgeInsets.zero
         
         getDataFromAPI(url: URL(string: "https://offpayroll.org.uk/api/agents/\(_agent.name.replacingOccurrences(of: " ", with: "%20"))")!) { (err, data) in
             self.agent = data.fairAgent
             self.comments = data.comments
-            
-            self.tableView.reloadData()
             
             self.companyLogo.image = self.agent.image
             self.companyName.text = self.agent.name
@@ -98,37 +90,6 @@ class AgentDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func indexChanged(_ sender: Any) {
-        switch segmentCtrl.selectedSegmentIndex {
-        case 1:
-            break;
-        case 2:
-            scrollView.isHidden = true
-            tableView.isHidden = false
-            break;
-        default:
-            scrollView.isHidden = false
-            tableView.isHidden = true
-            break;
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return comments.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let comment = comments[indexPath.row]
-        
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "CommentTableViewCell") as? CommentTableViewCell {
-            cell.layoutMargins = UIEdgeInsets.zero
-            cell.configureCell(comment: comment)
-            return cell
-        }
-        
-        return UITableViewCell()
-    }
-    
     func getDataFromAPI(url: URL, onComplete: @escaping AgentDetailsAPIRequestCompletion) {
         Alamofire.request(url).responseJSON {
             response in
@@ -140,7 +101,7 @@ class AgentDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
                 
                 if let comments = dict["comments"] as? Array<AnyObject> {
                     for comment in comments {
-                        let dateSubmitted = Date.FromISOString(dateString: comment["dateSubmitted"] as! String)
+                        let dateSubmitted = Date.FromISOString(dateString: comment["dateSubmitted"] as! String, format: "yyyy-MM-dd'T'HH:mm:ss.SSS")
                         let situation = comment["situation"] as! String
                         let situationOtherDetails = comment["situationOtherDetails"] as! String
                         let commentText = "\"\((comment["comments"] as! String).trimmingCharacters(in: .whitespacesAndNewlines))\""

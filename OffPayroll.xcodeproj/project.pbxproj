@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		775382CF23F30DFA008D0784 /* ContractsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775382CE23F30DFA008D0784 /* ContractsVC.swift */; };
+		775382D123F31198008D0784 /* Contract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775382D023F31198008D0784 /* Contract.swift */; };
+		775382D323F334DF008D0784 /* ContractTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775382D223F334DF008D0784 /* ContractTableViewCell.swift */; };
 		7755F1F823EFF2120058A720 /* AgentDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7755F1F723EFF2120058A720 /* AgentDetailsVC.swift */; };
 		7755F1FB23F015B50058A720 /* FairAgentMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7755F1FA23F015B50058A720 /* FairAgentMapper.swift */; };
 		775AB94A23EF02A30068FB6B /* ConsultanciesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775AB94923EF02A30068FB6B /* ConsultanciesVC.swift */; };
@@ -33,6 +36,9 @@
 
 /* Begin PBXFileReference section */
 		01A9F52AE9908B04392473F5 /* Pods-OffPayroll.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OffPayroll.debug.xcconfig"; path = "Target Support Files/Pods-OffPayroll/Pods-OffPayroll.debug.xcconfig"; sourceTree = "<group>"; };
+		775382CE23F30DFA008D0784 /* ContractsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractsVC.swift; sourceTree = "<group>"; };
+		775382D023F31198008D0784 /* Contract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contract.swift; sourceTree = "<group>"; };
+		775382D223F334DF008D0784 /* ContractTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractTableViewCell.swift; sourceTree = "<group>"; };
 		7755F1F723EFF2120058A720 /* AgentDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentDetailsVC.swift; sourceTree = "<group>"; };
 		7755F1FA23F015B50058A720 /* FairAgentMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FairAgentMapper.swift; sourceTree = "<group>"; };
 		775AB94923EF02A30068FB6B /* ConsultanciesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultanciesVC.swift; sourceTree = "<group>"; };
@@ -132,6 +138,7 @@
 				77C6920D23E49BC600DFF6B0 /* Main.storyboard */,
 				77C3760523E7381300E51C09 /* ViewWithDropShadow.swift */,
 				775AB94B23EF08390068FB6B /* NotificationView.swift */,
+				775382D223F334DF008D0784 /* ContractTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -143,6 +150,7 @@
 				77E7009F23E9646400338DB5 /* Comment.swift */,
 				77E700AA23EDA13000338DB5 /* FairAgent.swift */,
 				77E700AC23EDC63F00338DB5 /* Agent.swift */,
+				775382D023F31198008D0784 /* Contract.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -161,6 +169,7 @@
 				77E700A623ED9E9500338DB5 /* AgentsVC.swift */,
 				77C3760923E7445400E51C09 /* ClientVC.swift */,
 				775AB94923EF02A30068FB6B /* ConsultanciesVC.swift */,
+				775382CE23F30DFA008D0784 /* ContractsVC.swift */,
 				77C6920B23E49BC600DFF6B0 /* MainVC.swift */,
 				7755F1F723EFF2120058A720 /* AgentDetailsVC.swift */,
 			);
@@ -294,11 +303,14 @@
 				77CDB77C23E7085900745A3C /* Company.swift in Sources */,
 				77E700A923EDA0F500338DB5 /* AgentTableViewCell.swift in Sources */,
 				77E700A523E9DADC00338DB5 /* Date.swift in Sources */,
+				775382D123F31198008D0784 /* Contract.swift in Sources */,
 				775AB94C23EF08390068FB6B /* NotificationView.swift in Sources */,
 				77C3760623E7381300E51C09 /* ViewWithDropShadow.swift in Sources */,
 				77C6920C23E49BC600DFF6B0 /* MainVC.swift in Sources */,
 				7755F1FB23F015B50058A720 /* FairAgentMapper.swift in Sources */,
+				775382CF23F30DFA008D0784 /* ContractsVC.swift in Sources */,
 				77E700AB23EDA13000338DB5 /* FairAgent.swift in Sources */,
+				775382D323F334DF008D0784 /* ContractTableViewCell.swift in Sources */,
 				77C6920823E49BC600DFF6B0 /* AppDelegate.swift in Sources */,
 				775AB94A23EF02A30068FB6B /* ConsultanciesVC.swift in Sources */,
 				77E700AD23EDC63F00338DB5 /* Agent.swift in Sources */,
