@@ -15,8 +15,15 @@ class ContractTableViewCell: UITableViewCell {
     @IBOutlet weak var hirerLabel: UILabel!
     @IBOutlet weak var view: UIView!
     
+    private var _contract: Contract!
+
+    var contract: Contract {
+        return _contract
+    }
     
     func configureCell(contract: Contract, isAlternateCell: Bool) {
+        _contract = contract
+        
         titleLabel.text = contract.title
         locationLabel.text = contract.location
         hirerLabel.text = contract.hirer

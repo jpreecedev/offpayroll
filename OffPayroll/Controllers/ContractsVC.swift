@@ -39,6 +39,7 @@ class ContractsVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
             for contract in data {
                 let newContract = Contract()
                 
+                newContract.id = contract["id"] as? Int
                 newContract.datePosted = Date.FromISOString(dateString: contract["datePosted"] as! String, format: "yyyy-MM-dd'T'HH:mm:ss")
                 newContract.hirer = contract["hirer"] as? String
                 newContract.title = contract["title"] as? String
@@ -134,5 +135,13 @@ class ContractsVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     func stopActivityIndicator() {
         indicator.stopAnimating()
         indicator.hidesWhenStopped = true
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? ContractDetailsVC {
+            if let cell = sender as? ContractTableViewCell {
+                vc.contract = cell.contract
+            }
+        }
     }
 }

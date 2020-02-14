@@ -1,30 +1,23 @@
 //
-//  Contract.swift
+//  ContractDetails.swift
 //  OffPayroll
 //
-//  Created by Jon Preece on 11/02/2020.
+//  Created by Jon Preece on 14/02/2020.
 //  Copyright © 2020 Jon Preece. All rights reserved.
 //
 
 import Foundation
 
-class Contract: Hashable {
-    
-    static func == (lhs: Contract, rhs: Contract) -> Bool {
-        return ObjectIdentifier(lhs) == ObjectIdentifier(rhs)
-    }
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(ObjectIdentifier(self).hashValue)
-    }
-    
+class ContractDetails {
     private var _id: Int?
     private var _datePosted: Date?
+    private var _description: String?
     private var _hirer: String?
-    private var _title: String?
+    private var _ir35Status: String?
     private var _location: String?
-    private var _rateFormatted: String?
+    private var _title: String?
     private var _url: String?
+    private var _rateFormatted: String?
     private var _likeCount: Int?
     private var _shortCount: Int?
     private var _reassessCount: Int?
@@ -49,12 +42,30 @@ class Contract: Hashable {
         }
     }
     
+    var description: String? {
+        get {
+            return _description
+        }
+        set {
+            _description = newValue
+        }
+    }
+    
     var hirer: String? {
         get {
             return _hirer
         }
         set {
             _hirer = newValue
+        }
+    }
+    
+    var ir35Status: String? {
+        get {
+            return _ir35Status
+        }
+        set {
+            _ir35Status = newValue
         }
     }
     
