@@ -12,9 +12,10 @@
 		775382D323F334DF008D0784 /* ContractTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775382D223F334DF008D0784 /* ContractTableViewCell.swift */; };
 		775382D523F6A167008D0784 /* ContractDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775382D423F6A167008D0784 /* ContractDetailsVC.swift */; };
 		775382D723F6A2C1008D0784 /* ContractDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775382D623F6A2C0008D0784 /* ContractDetails.swift */; };
-		7755F1F823EFF2120058A720 /* AgentDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7755F1F723EFF2120058A720 /* AgentDetailsVC.swift */; };
+		7755F1F823EFF2120058A720 /* ConsultancyDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7755F1F723EFF2120058A720 /* ConsultancyDetailsVC.swift */; };
 		7755F1FB23F015B50058A720 /* FairAgentMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7755F1FA23F015B50058A720 /* FairAgentMapper.swift */; };
 		7759AAEB23F6B76400278E86 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7759AAEA23F6B76400278E86 /* Button.swift */; };
+		7759AAF223F6F90200278E86 /* AgentDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7759AAF123F6F90200278E86 /* AgentDetailsVC.swift */; };
 		775AB94A23EF02A30068FB6B /* ConsultanciesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775AB94923EF02A30068FB6B /* ConsultanciesVC.swift */; };
 		775AB94C23EF08390068FB6B /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775AB94B23EF08390068FB6B /* NotificationView.swift */; };
 		77C3760623E7381300E51C09 /* ViewWithDropShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C3760523E7381300E51C09 /* ViewWithDropShadow.swift */; };
@@ -44,9 +45,10 @@
 		775382D223F334DF008D0784 /* ContractTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractTableViewCell.swift; sourceTree = "<group>"; };
 		775382D423F6A167008D0784 /* ContractDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractDetailsVC.swift; sourceTree = "<group>"; };
 		775382D623F6A2C0008D0784 /* ContractDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractDetails.swift; sourceTree = "<group>"; };
-		7755F1F723EFF2120058A720 /* AgentDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentDetailsVC.swift; sourceTree = "<group>"; };
+		7755F1F723EFF2120058A720 /* ConsultancyDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultancyDetailsVC.swift; sourceTree = "<group>"; };
 		7755F1FA23F015B50058A720 /* FairAgentMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FairAgentMapper.swift; sourceTree = "<group>"; };
 		7759AAEA23F6B76400278E86 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		7759AAF123F6F90200278E86 /* AgentDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgentDetailsVC.swift; sourceTree = "<group>"; };
 		775AB94923EF02A30068FB6B /* ConsultanciesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultanciesVC.swift; sourceTree = "<group>"; };
 		775AB94B23EF08390068FB6B /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		77C3760523E7381300E51C09 /* ViewWithDropShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewWithDropShadow.swift; sourceTree = "<group>"; };
@@ -175,11 +177,12 @@
 			isa = PBXGroup;
 			children = (
 				77E700A623ED9E9500338DB5 /* AgentsVC.swift */,
+				7759AAF123F6F90200278E86 /* AgentDetailsVC.swift */,
 				77C3760923E7445400E51C09 /* ClientVC.swift */,
 				775AB94923EF02A30068FB6B /* ConsultanciesVC.swift */,
 				775382CE23F30DFA008D0784 /* ContractsVC.swift */,
 				77C6920B23E49BC600DFF6B0 /* MainVC.swift */,
-				7755F1F723EFF2120058A720 /* AgentDetailsVC.swift */,
+				7755F1F723EFF2120058A720 /* ConsultancyDetailsVC.swift */,
 				775382D423F6A167008D0784 /* ContractDetailsVC.swift */,
 			);
 			path = Controllers;
@@ -310,6 +313,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				77CDB77C23E7085900745A3C /* Company.swift in Sources */,
+				7759AAF223F6F90200278E86 /* AgentDetailsVC.swift in Sources */,
 				77E700A923EDA0F500338DB5 /* AgentTableViewCell.swift in Sources */,
 				77E700A523E9DADC00338DB5 /* Date.swift in Sources */,
 				775382D523F6A167008D0784 /* ContractDetailsVC.swift in Sources */,
@@ -330,7 +334,7 @@
 				77C6920A23E49BC600DFF6B0 /* SceneDelegate.swift in Sources */,
 				7759AAEB23F6B76400278E86 /* Button.swift in Sources */,
 				77C3760A23E7445400E51C09 /* ClientVC.swift in Sources */,
-				7755F1F823EFF2120058A720 /* AgentDetailsVC.swift in Sources */,
+				7755F1F823EFF2120058A720 /* ConsultancyDetailsVC.swift in Sources */,
 				77E700A023E9646400338DB5 /* Comment.swift in Sources */,
 				77CDB77923E6ECBC00745A3C /* CompanyTableViewCell.swift in Sources */,
 			);

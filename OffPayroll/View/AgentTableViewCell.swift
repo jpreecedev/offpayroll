@@ -15,7 +15,7 @@ class AgentTableViewCell: UITableViewCell {
     @IBOutlet weak var agentImage: UIImageView!
     @IBOutlet weak var agentName: UILabel!
     @IBOutlet weak var agentDescription: UILabel!
-
+    
     private var _fairAgent: FairAgent!
     private var _agent: Agent!
 

@@ -82,5 +82,13 @@ class ConsultanciesVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         indicator.stopAnimating()
         indicator.hidesWhenStopped = true
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? ConsultancyDetailsVC {
+            if let cell = sender as? AgentTableViewCell {
+                vc.agent = cell.fairAgent
+            }
+        }
+    }
 
 }

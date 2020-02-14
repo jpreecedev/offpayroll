@@ -27,6 +27,7 @@ class FairAgentMapper {
         fairAgent.examples = data["examples"] as? String
         fairAgent.jobSearchName = data["jobSearchName"] as? String
         fairAgent.reviewSearchName = data["reviewSearchName"] as? String
+        fairAgent.websiteUrl = data["websiteUrl"] as? String
         
         return fairAgent
     }

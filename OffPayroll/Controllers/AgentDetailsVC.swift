@@ -1,5 +1,5 @@
 //
-//  AgentDetailsVC.swift
+//  ConsultancyDetailsVC.swift
 //  OffPayroll
 //
 //  Created by Jon Preece on 09/02/2020.
@@ -9,42 +9,20 @@
 import UIKit
 import Alamofire
 
-typealias AgentDetailsAPIRequestCompletion = (_ errMsg: String?, _ data: AgentDetailsResult) -> Void
+typealias AgencyAPIRequestCompletion = (_ errMsg: String?, _ data: [Comment]) -> Void
 
-struct AgentDetailsResult {
-    var fairAgent: FairAgent
-    var comments: [Comment]
-}
 
-class AgentDetailsVC: UIViewController {
+class AgentDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var backBtn: UIButton!
-    @IBOutlet weak var companyLogo: UIImageView!
-    @IBOutlet weak var companyName: UILabel!
-    @IBOutlet weak var segmentCtrl: UISegmentedControl!
+    @IBOutlet weak var agentLogo: UIImageView!
+    @IBOutlet weak var agentName: UILabel!
+    @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var specialismsHeaderLabel: UILabel!
-    @IBOutlet weak var specialismsLabel: UILabel!
-    @IBOutlet weak var locationsHeaderLabel: UILabel!
-    @IBOutlet weak var locationsLabel: UILabel!
-    @IBOutlet weak var statusDeterminationHeaderLabel: UILabel!
-    @IBOutlet weak var statusDeterminationLabel: UILabel!
-    @IBOutlet weak var thirdPartiesHeaderLabel: UILabel!
-    @IBOutlet weak var thirdPartiesLabel: UILabel!
-    @IBOutlet weak var appealsProcessHeaderLabel: UILabel!
-    @IBOutlet weak var appealsProcessLabel: UILabel!
-    @IBOutlet weak var insurancesHeaderLabel: UILabel!
-    @IBOutlet weak var insurancesLabel: UILabel!
-    @IBOutlet weak var approachHeaderLabel: UILabel!
-    @IBOutlet weak var approachLabel: UILabel!
-    
-    @IBOutlet weak var scrollView: UIScrollView!
-    
-    private var _agent: FairAgent!
-    var indicator = UIActivityIndicatorView()
+    private var _agent: Agent!
     var comments = [Comment]()
+    var indicator = UIActivityIndicatorView()
     
-    var agent: FairAgent {
+    var agent: Agent {
         get {
             return _agent
         }
@@ -53,50 +31,44 @@ class AgentDetailsVC: UIViewController {
         }
     }
     
-    func toggleControl(headerLabel: UILabel!, bodyLabel: UILabel!, value: String?) {
-        headerLabel.isHidden = value == nil
-        bodyLabel.isHidden = value == nil
-        bodyLabel.text = value
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.tableFooterView = UIView()
+        tableView.layoutMargins = UIEdgeInsets.zero
+        tableView.separatorInset = UIEdgeInsets.zero
+        tableView.isHidden = true
+        
         startActivityIndicator()
         
-        companyName.text = _agent.name
-        companyLogo.image = _agent.image
+        agentLogo.image = UIImage(named: "building-solid-off")
+        agentName.text = _agent.name
+        
+        print( "https://offpayroll.org.uk/api/agents/\(_agent.name)")
         
         getDataFromAPI(url: URL(string: "https://offpayroll.org.uk/api/agents/\(_agent.name.replacingOccurrences(of: " ", with: "%20"))")!) { (err, data) in
-            self.agent = data.fairAgent
-            self.comments = data.comments
-            
-            self.companyLogo.image = self.agent.image
-            self.companyName.text = self.agent.name
-            
-            self.toggleControl(headerLabel: self.specialismsHeaderLabel, bodyLabel: self.specialismsLabel, value: self.agent.specialisms)
-            self.toggleControl(headerLabel: self.locationsHeaderLabel, bodyLabel: self.locationsLabel, value: self.agent.locations)
-            self.toggleControl(headerLabel: self.statusDeterminationHeaderLabel, bodyLabel: self.statusDeterminationLabel, value: self.agent.determinationMethod)
-            self.toggleControl(headerLabel: self.thirdPartiesHeaderLabel, bodyLabel: self.thirdPartiesLabel, value: self.agent.thirdParties)
-            self.toggleControl(headerLabel: self.appealsProcessHeaderLabel, bodyLabel: self.appealsProcessLabel, value: self.agent.appealsProcess)
-            self.toggleControl(headerLabel: self.insurancesHeaderLabel, bodyLabel: self.insurancesLabel, value: self.agent.insurances)
-            self.toggleControl(headerLabel: self.approachHeaderLabel, bodyLabel: self.approachLabel, value: self.agent.examples)
-            
+            for comment in data {
+                self.comments.append(comment)
+            }
+            self.tableView.reloadData()
             self.stopActivityIndicator()
+            self.tableView.isHidden = false
         }
     }
     
-    @IBAction func backBtnPressed(_ sender: Any) {
+    @IBAction func backBtn(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     
-    func getDataFromAPI(url: URL, onComplete: @escaping AgentDetailsAPIRequestCompletion) {
+    func getDataFromAPI(url: URL, onComplete: @escaping AgencyAPIRequestCompletion) {
         Alamofire.request(url).responseJSON {
             response in
             let result = response.result
             if let dict = result.value as? Dictionary<String, AnyObject> {
                 
-                let fairAgent = FairAgentMapper.mapFromAPI(data: dict["fairAgent"] as AnyObject, existingAgent: self._agent)
                 var commentsResult = [Comment]()
                 
                 if let comments = dict["comments"] as? Array<AnyObject> {
@@ -109,9 +81,25 @@ class AgentDetailsVC: UIViewController {
                     }
                 }
                 
-                onComplete(nil, AgentDetailsResult(fairAgent: fairAgent, comments: commentsResult))
+                onComplete(nil, commentsResult)
             }
         }
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return comments.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let comment = comments[indexPath.row]
+        
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "CommentTableViewCell") as? CommentTableViewCell {
+            cell.layoutMargins = UIEdgeInsets.zero
+            cell.configureCell(comment: comment)
+            return cell
+        }
+        
+        return UITableViewCell()
     }
     
     func startActivityIndicator() {

@@ -150,6 +150,15 @@ class FairAgent {
         }
     }
     
+    var websiteUrl: String? {
+        get {
+            return _websiteUrl
+        }
+        set {
+            _websiteUrl = newValue
+        }
+    }
+    
     init(name: String, isConsultancy: Bool, shortDescription: String, slug: String) {
         _name = name
         _isConsultancy = isConsultancy
