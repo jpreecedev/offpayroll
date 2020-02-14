@@ -15,9 +15,10 @@ class ContractsVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     
     @IBOutlet weak var tableView: UITableView!
     
-    
     var indicator = UIActivityIndicatorView()
-    var contracts = [Contract]()
+    var contracts = Dictionary<String, [Contract]>()
+    
+    let sectionHeaderHeight: CGFloat = 35
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +33,8 @@ class ContractsVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         startActivityIndicator()
         
         getDataFromAPI(url: URL(string: "https://jobs-api.offpayroll.org.uk/api/jobs/recentoutside")!) { (err, data) in
+            var contracts = [Contract]()
+            
             for contract in data {
                 let newContract = Contract()
                 
@@ -47,29 +50,52 @@ class ContractsVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
                 newContract.duplicateCount = contract["duplicateCount"] as? Int
                 newContract.otherCount = contract["otherCount"] as? Int
                 
-                self.contracts.append(newContract)
+                contracts.append(newContract)
             }
+            
+            self.contracts = Dictionary(grouping: contracts, by: { Date.ToFormattedDateString(date: $0.datePosted!) })
             self.tableView.reloadData()
             self.stopActivityIndicator()
             self.tableView.isHidden = false
         }
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return contracts.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let contract = contracts[indexPath.row]
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return Array(contracts)[section].value.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return sectionHeaderHeight
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: sectionHeaderHeight))
+        view.backgroundColor = UIColor(red: 209/255, green:228/255, blue:253/255, alpha: 1)
         
+        let label = UILabel(frame: CGRect(x: 15, y: 0, width: tableView.bounds.width - 30, height: sectionHeaderHeight))
+        label.font = UIFont.boldSystemFont(ofSize: 15)
+        label.textColor = UIColor.black
+        label.text = Array(contracts)[section].key
+        
+        view.addSubview(label)
+        return view
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "ContractTableViewCell") as? ContractTableViewCell {
+
+            let contract: Contract = Array(contracts)[indexPath.section].value[indexPath.row]
             
             if indexPath.row % 2 == 0 {
                 cell.backgroundColor = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1)
             } else {
                 cell.backgroundColor = UIColor.white
             }
-            
+
             cell.layoutMargins = UIEdgeInsets.zero
             cell.configureCell(contract: contract, isAlternateCell: indexPath.row % 2 == 0)
             return cell

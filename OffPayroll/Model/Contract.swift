@@ -8,7 +8,15 @@
 
 import Foundation
 
-class Contract {
+class Contract: Hashable {
+    
+    static func == (lhs: Contract, rhs: Contract) -> Bool {
+        return ObjectIdentifier(lhs) == ObjectIdentifier(rhs)
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(ObjectIdentifier(self).hashValue)
+    }
     
     private var _datePosted: Date?
     private var _hirer: String?
