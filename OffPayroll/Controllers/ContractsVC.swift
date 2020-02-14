@@ -55,6 +55,8 @@ class ContractsVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
                 contracts.append(newContract)
             }
             
+            contracts = contracts.sorted(by: { $0.datePosted!.compare($1.datePosted!) == .orderedDescending })
+            
             self.contracts = Dictionary(grouping: contracts, by: { Date.ToFormattedDateString(date: $0.datePosted!) })
             self.contractsTabBarItem.badgeValue = "\(contracts.count)"
             self.contractsTabBarItem.badgeColor = UIColor(red: 40/255, green:167/255, blue:69/255, alpha: 1)
