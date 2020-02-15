@@ -42,6 +42,11 @@ class CommentTableViewCell: UITableViewCell {
             situationIcon.image = UIImage(named: "exclamation-triangle-solid")
             situationLabel.textColor = UIColor(red: 255/255, green: 193/255, blue: 7/255, alpha: 1)
             break
+        case "permie":
+            situationLabel.text = "Permie roles only"
+            situationIcon.image = UIImage(named: "error")
+            situationLabel.textColor = UIColor(red: 220/255, green: 53/255, blue: 69/255, alpha: 1)
+            break
         default:
             situationLabel.text = comment.situationOtherDetails != "" ? "Other: \(comment.situationOtherDetails)" : ""
             situationIcon.image = UIImage(named: "question-circle-solid")

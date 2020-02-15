@@ -17,6 +17,7 @@ class AgentDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var agentLogo: UIImageView!
     @IBOutlet weak var agentName: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var agentBlurbLabel: UILabel!
     
     private var _agent: Agent!
     var comments = [Comment]()
@@ -46,6 +47,7 @@ class AgentDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         agentLogo.image = UIImage(named: "building-solid-off")
         agentName.text = _agent.name
+        agentBlurbLabel.text = "Latest insights of \(_agent.name) from contractors and consultants"
         
         print( "https://offpayroll.org.uk/api/agents/\(_agent.name)")
         
