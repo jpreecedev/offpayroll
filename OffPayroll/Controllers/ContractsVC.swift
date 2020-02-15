@@ -39,7 +39,7 @@ class ContractsVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
             for contract in data {
                 let newContract = Contract()
                 
-                newContract.id = contract["id"] as? Int
+                newContract.id = contract["id"] as? Int32
                 newContract.datePosted = Date.FromISOString(dateString: contract["datePosted"] as! String, format: "yyyy-MM-dd'T'HH:mm:ss")
                 newContract.hirer = contract["hirer"] as? String
                 newContract.title = contract["title"] as? String

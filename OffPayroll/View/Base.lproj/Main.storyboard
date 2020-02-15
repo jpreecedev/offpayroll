@@ -716,6 +716,10 @@
                                         <real key="value" value="4"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="looksGoodPressed:" destination="GxK-LV-Awo" eventType="touchUpInside" id="MfO-gS-8na"/>
+                                    <action selector="looksGoodPressed:" destination="wBE-3e-MjJ" eventType="touchUpInside" id="W3d-km-bD7"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ol9-VI-7vd">
                                 <rect key="frame" x="166" y="291.66666666666669" width="150" height="44"/>
@@ -730,6 +734,9 @@
                                         <real key="value" value="4"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="flagProblemPressed:" destination="wBE-3e-MjJ" eventType="touchUpInside" id="p6u-69-0EI"/>
+                                </connections>
                             </button>
                             <scrollView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x2h-8c-YJx">
                                 <rect key="frame" x="20" y="351.66666666666674" width="374" height="470.33333333333326"/>
@@ -858,6 +865,7 @@
                         <outlet property="hirerLabel" destination="mbS-tf-9Kw" id="hEQ-c6-5FK"/>
                         <outlet property="locationHeaderLabel" destination="TOZ-0a-CT9" id="vF9-Y3-Ecd"/>
                         <outlet property="locationLabel" destination="q5M-Q0-8fF" id="xqg-FJ-W2z"/>
+                        <outlet property="looksGoodBtn" destination="VKS-X5-LEK" id="oX9-Fh-Zxn"/>
                         <outlet property="rateHeaderLabel" destination="B6p-Dj-5NV" id="Ux5-fV-xQ9"/>
                         <outlet property="rateLabel" destination="ymI-lr-q7t" id="QNx-rV-VkT"/>
                         <outlet property="scrollView" destination="x2h-8c-YJx" id="FLF-ec-oFs"/>
@@ -866,6 +874,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CuF-bz-QNY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="GxK-LV-Awo" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-3233.3333333333335" y="1273.6607142857142"/>
         </scene>

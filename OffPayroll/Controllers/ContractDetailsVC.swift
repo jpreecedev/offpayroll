@@ -16,7 +16,6 @@ class ContractDetailsVC: UIViewController {
     var indicator = UIActivityIndicatorView()
     var contractDetails = ContractDetails()
     
-    
     @IBOutlet weak var hirerHeaderLabel: UILabel!
     @IBOutlet weak var hirerLabel: UILabel!
     @IBOutlet weak var locationHeaderLabel: UILabel!
@@ -27,8 +26,10 @@ class ContractDetailsVC: UIViewController {
     @IBOutlet weak var sourceTextView: UITextView!
     @IBOutlet weak var fullDescriptionLabel: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var looksGoodBtn: UIButton!
     
     private var _contract: Contract!
+    private var _likesService = LikesService()
     
     var contract: Contract {
         get {
@@ -45,10 +46,21 @@ class ContractDetailsVC: UIViewController {
         bodyLabel.text = value
     }
     
+    func disableLooksGoodButton() {
+        looksGoodBtn.isEnabled = false
+        looksGoodBtn.backgroundColor = UIColor(red: 83/255, green: 165/255, blue: 81/255, alpha: 0.3)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         startActivityIndicator()
+        
+        if let contractId = contract.id {
+            if (_likesService.hasPreviouslyLiked(contractId: contractId)) {
+                disableLooksGoodButton()
+            }
+        }
         
         getDataFromAPI(url: URL(string: "https://jobs-api.offpayroll.org.uk/api/jobs/\(_contract.id!)")!) { (err, data) in
             
@@ -99,6 +111,17 @@ class ContractDetailsVC: UIViewController {
     
     @IBAction func backButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func looksGoodPressed(_ sender: Any) {
+        if let contractId = contract.id {
+            _likesService.likeContract(contractId: contractId)
+            disableLooksGoodButton()
+        }
+    }
+    
+    @IBAction func flagProblemPressed(_ sender: Any) {
+    
     }
     
     func startActivityIndicator() {

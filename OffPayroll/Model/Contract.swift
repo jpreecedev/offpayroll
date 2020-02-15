@@ -18,7 +18,7 @@ class Contract: Hashable {
         hasher.combine(ObjectIdentifier(self).hashValue)
     }
     
-    private var _id: Int?
+    private var _id: Int32?
     private var _datePosted: Date?
     private var _hirer: String?
     private var _title: String?
@@ -31,7 +31,7 @@ class Contract: Hashable {
     private var _duplicateCount: Int?
     private var _otherCount: Int?
     
-    var id: Int? {
+    var id: Int32? {
         get {
             return _id
         }
