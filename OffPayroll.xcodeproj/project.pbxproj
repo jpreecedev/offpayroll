@@ -23,6 +23,7 @@
 		776ED75C23F8158800393DCA /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 776ED75A23F8158800393DCA /* Model.xcdatamodeld */; };
 		776ED75E23F815D100393DCA /* OffPayrollService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776ED75D23F815D100393DCA /* OffPayrollService.swift */; };
 		776ED76023F8222100393DCA /* FlagAProblemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776ED75F23F8222100393DCA /* FlagAProblemVC.swift */; };
+		779B1BBF23F98118000ED468 /* EmailSubscriptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779B1BBE23F98118000ED468 /* EmailSubscriptionService.swift */; };
 		77C3760623E7381300E51C09 /* ViewWithDropShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C3760523E7381300E51C09 /* ViewWithDropShadow.swift */; };
 		77C3760A23E7445400E51C09 /* ClientVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C3760923E7445400E51C09 /* ClientVC.swift */; };
 		77C6920823E49BC600DFF6B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C6920723E49BC600DFF6B0 /* AppDelegate.swift */; };
@@ -61,6 +62,7 @@
 		776ED75B23F8158800393DCA /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		776ED75D23F815D100393DCA /* OffPayrollService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffPayrollService.swift; sourceTree = "<group>"; };
 		776ED75F23F8222100393DCA /* FlagAProblemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagAProblemVC.swift; sourceTree = "<group>"; };
+		779B1BBE23F98118000ED468 /* EmailSubscriptionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSubscriptionService.swift; sourceTree = "<group>"; };
 		77C3760523E7381300E51C09 /* ViewWithDropShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewWithDropShadow.swift; sourceTree = "<group>"; };
 		77C3760923E7445400E51C09 /* ClientVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientVC.swift; sourceTree = "<group>"; };
 		77C6920423E49BC600DFF6B0 /* OffPayroll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OffPayroll.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				776ED75D23F815D100393DCA /* OffPayrollService.swift */,
+				779B1BBE23F98118000ED468 /* EmailSubscriptionService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				77CDB77C23E7085900745A3C /* Company.swift in Sources */,
+				779B1BBF23F98118000ED468 /* EmailSubscriptionService.swift in Sources */,
 				7759AAF223F6F90200278E86 /* AgentDetailsVC.swift in Sources */,
 				77E700A923EDA0F500338DB5 /* AgentTableViewCell.swift in Sources */,
 				77E700A523E9DADC00338DB5 /* Date.swift in Sources */,

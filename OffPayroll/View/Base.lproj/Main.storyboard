@@ -224,7 +224,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="293-Ts-q8i">
-                                <rect key="frame" x="0.0" y="184.33333333333331" width="414" height="628.66666666666674"/>
+                                <rect key="frame" x="0.0" y="184.33333333333331" width="414" height="528.66666666666674"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ContractTableViewCell" focusStyle="custom" rowHeight="99" id="aOd-sG-E3G" userLabel="ContractCell" customClass="ContractTableViewCell" customModule="OffPayroll" customModuleProvider="target">
@@ -312,24 +312,88 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kqx-pY-tzn">
+                                <rect key="frame" x="0.0" y="713" width="414" height="100"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subscribe for daily updates" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jg1-BA-Tcz">
+                                        <rect key="frame" x="16" y="16" width="382" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="WaY-gZ-zGj"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="GOj-Ll-odG">
+                                        <rect key="frame" x="16" y="45" width="382" height="34"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="you@company.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="85A-IR-Aa3">
+                                                <rect key="frame" x="0.0" y="0.0" width="297" height="34"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="34" id="LEw-Nu-lzX"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DoU-D3-rGr">
+                                                <rect key="frame" x="305" y="2" width="77" height="30"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="100" id="yyY-4h-av2"/>
+                                                </constraints>
+                                                <state key="normal" title=" Subscribe ">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="4"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="subscribeBtnPressed:" destination="E9z-nU-T5t" eventType="touchUpInside" id="NcC-7k-yR6"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="j8Z-8u-iWd"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.2416781187" green="0.49537926910000002" blue="0.4313674569" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="GOj-Ll-odG" secondAttribute="trailing" constant="16" id="8lg-q2-bd6"/>
+                                    <constraint firstAttribute="trailing" secondItem="jg1-BA-Tcz" secondAttribute="trailing" constant="16" id="9is-I4-HfP"/>
+                                    <constraint firstAttribute="height" constant="100" id="IKf-bE-gdj"/>
+                                    <constraint firstItem="jg1-BA-Tcz" firstAttribute="top" secondItem="kqx-pY-tzn" secondAttribute="top" constant="16" id="XOm-X2-LJx"/>
+                                    <constraint firstItem="GOj-Ll-odG" firstAttribute="top" secondItem="jg1-BA-Tcz" secondAttribute="bottom" constant="8" id="hGJ-ya-BSM"/>
+                                    <constraint firstItem="jg1-BA-Tcz" firstAttribute="leading" secondItem="kqx-pY-tzn" secondAttribute="leading" constant="16" id="ogm-Kn-JAm"/>
+                                    <constraint firstItem="GOj-Ll-odG" firstAttribute="leading" secondItem="kqx-pY-tzn" secondAttribute="leading" constant="16" id="xod-Ff-HeL"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="56J-ka-j0l" firstAttribute="top" secondItem="FXO-pU-njW" secondAttribute="top" id="7pG-Ij-RPm"/>
-                            <constraint firstItem="293-Ts-q8i" firstAttribute="bottom" secondItem="FXO-pU-njW" secondAttribute="bottom" id="FhY-oU-VtL"/>
+                            <constraint firstItem="FXO-pU-njW" firstAttribute="bottom" secondItem="kqx-pY-tzn" secondAttribute="bottom" id="8Pf-5X-6e0"/>
                             <constraint firstItem="80Z-9n-oxn" firstAttribute="leading" secondItem="FXO-pU-njW" secondAttribute="leading" constant="20" id="PXg-GK-7gK"/>
+                            <constraint firstItem="kqx-pY-tzn" firstAttribute="top" secondItem="293-Ts-q8i" secondAttribute="bottom" id="SOd-UA-eaa"/>
+                            <constraint firstItem="kqx-pY-tzn" firstAttribute="leading" secondItem="FXO-pU-njW" secondAttribute="leading" id="SPe-2O-pNK"/>
                             <constraint firstItem="56J-ka-j0l" firstAttribute="trailing" secondItem="FXO-pU-njW" secondAttribute="trailing" id="V1s-xU-tWy"/>
                             <constraint firstItem="293-Ts-q8i" firstAttribute="top" secondItem="80Z-9n-oxn" secondAttribute="bottom" constant="18" id="dHs-LN-Y9D"/>
                             <constraint firstItem="293-Ts-q8i" firstAttribute="trailing" secondItem="FXO-pU-njW" secondAttribute="trailing" id="laL-Gd-zhz"/>
                             <constraint firstItem="80Z-9n-oxn" firstAttribute="top" secondItem="56J-ka-j0l" secondAttribute="bottom" constant="22" id="ldV-h9-It6"/>
                             <constraint firstItem="293-Ts-q8i" firstAttribute="leading" secondItem="FXO-pU-njW" secondAttribute="leading" id="nwi-1w-XFc"/>
                             <constraint firstItem="56J-ka-j0l" firstAttribute="leading" secondItem="FXO-pU-njW" secondAttribute="leading" id="pL8-Ty-4NS"/>
+                            <constraint firstItem="FXO-pU-njW" firstAttribute="trailing" secondItem="kqx-pY-tzn" secondAttribute="trailing" id="uX2-Fc-vd5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FXO-pU-njW"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Contracts" image="tab-book-solid-on" selectedImage="tab-book-solid-off" id="g9B-KD-kUA"/>
                     <connections>
                         <outlet property="contractsTabBarItem" destination="g9B-KD-kUA" id="iBp-2i-2CO"/>
+                        <outlet property="emailTextField" destination="85A-IR-Aa3" id="at7-kG-cEg"/>
+                        <outlet property="subscribeBtn" destination="DoU-D3-rGr" id="rpu-sW-jeb"/>
+                        <outlet property="subscriptionTitleLabel" destination="jg1-BA-Tcz" id="fP9-He-dbd"/>
                         <outlet property="tableView" destination="293-Ts-q8i" id="cgy-s8-WtA"/>
                     </connections>
                 </viewController>

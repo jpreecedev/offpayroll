@@ -3,7 +3,14 @@
     <entity name="Likes" representedClassName="Likes" syncable="YES" codeGenerationType="class">
         <attribute name="contractId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
+    <entity name="Subscriptions" representedClassName="Subscriptions" syncable="YES" codeGenerationType="class">
+        <attribute name="accessToken" optional="YES" attributeType="String"/>
+        <attribute name="emailAddress" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isSubscribedToGlobalEmail" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+    </entity>
     <elements>
         <element name="Likes" positionX="-45" positionY="0" width="128" height="58"/>
+        <element name="Subscriptions" positionX="-45" positionY="9" width="128" height="103"/>
     </elements>
 </model>

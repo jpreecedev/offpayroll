@@ -15,9 +15,13 @@ class ContractsVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var contractsTabBarItem: UITabBarItem!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var subscriptionTitleLabel: UILabel!
+    @IBOutlet weak var subscribeBtn: UIButton!
     
     var indicator = UIActivityIndicatorView()
     var contracts = OrderedDictionary<String, [Contract]>()
+    var subscriptionsService = EmailSubscriptionService()
     
     let sectionHeaderHeight: CGFloat = 35
     
@@ -30,6 +34,15 @@ class ContractsVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         tableView.layoutMargins = UIEdgeInsets.zero
         tableView.separatorInset = UIEdgeInsets.zero
         tableView.isHidden = true
+        
+        updateSubscriptionUI()
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        
+        view.addGestureRecognizer(tap)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         startActivityIndicator()
         
@@ -139,5 +152,54 @@ class ContractsVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
                 vc.contract = cell.contract
             }
         }
+    }
+    
+    @IBAction func subscribeBtnPressed(_ sender: Any) {
+        
+        if subscriptionsService.hasSubscribed() {
+            if let email = emailTextField.text {
+                subscriptionsService.unsubscribe(emailAddress: email) {
+                    self.updateSubscriptionUI()
+                }
+            }
+            
+        } else {
+            if let email = emailTextField.text {
+                subscriptionsService.subscribe(emailAddress: email) {
+                    self.updateSubscriptionUI()
+                }
+            }
+        }
+        
+    }
+    
+    func updateSubscriptionUI() {
+        if subscriptionsService.hasSubscribed() {
+            subscribeBtn.setTitle("Unsubscribe", for: .normal)
+            emailTextField.isHidden = true
+            subscriptionTitleLabel.text = "Unsubscribe at any time"
+        } else {
+            subscribeBtn.setTitle("Subscribe", for: .normal)
+            emailTextField.isHidden = false
+            subscriptionTitleLabel.text = "Subscribe for daily updates"
+        }
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
