@@ -46,10 +46,10 @@
                                 </connections>
                             </switch>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UpJ-y8-m1Z" customClass="NotificationView" customModule="OffPayroll" customModuleProvider="target">
-                                <rect key="frame" x="16" y="184.66666666666666" width="382" height="102.33333333333334"/>
+                                <rect key="frame" x="16" y="179.66666666666666" width="382" height="107.33333333333334"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="qw4-Jv-Ia0">
-                                        <rect key="frame" x="16" y="16" width="350" height="70.333333333333329"/>
+                                        <rect key="frame" x="16" y="16" width="350" height="83.333333333333329"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you an agent getting IR35 right?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DyA-1v-QTc">
                                                 <rect key="frame" x="0.0" y="0.0" width="279.66666666666669" height="19.333333333333332"/>
@@ -63,19 +63,20 @@
                                                 <color key="textColor" red="0.16471967100000001" green="0.33609503509999999" blue="0.16467362639999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Simply fill out this form and we'll get you going." lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5aO-zs-fag">
-                                                <rect key="frame" x="0.0" y="53.333333333333343" width="304.66666666666669" height="17"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <color key="textColor" red="0.16471967100000001" green="0.33609503509999999" blue="0.16467362639999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yuZ-yB-PAK">
+                                                <rect key="frame" x="0.0" y="53.333333333333343" width="323" height="30"/>
+                                                <state key="normal" title="Simply fill out this form and we'll get you going."/>
+                                                <connections>
+                                                    <action selector="fillOutFormBtnPressed:" destination="T1B-MP-2A7" eventType="touchUpInside" id="yuh-of-fEj"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.8212999701" green="0.89561039210000004" blue="0.99217134709999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="qw4-Jv-Ia0" firstAttribute="top" secondItem="UpJ-y8-m1Z" secondAttribute="top" constant="16" id="Ggd-vD-PQf"/>
-                                    <constraint firstAttribute="bottom" secondItem="qw4-Jv-Ia0" secondAttribute="bottom" constant="16" id="H6p-WC-ZPn"/>
+                                    <constraint firstAttribute="bottom" secondItem="qw4-Jv-Ia0" secondAttribute="bottom" constant="8" id="H6p-WC-ZPn"/>
                                     <constraint firstItem="qw4-Jv-Ia0" firstAttribute="leading" secondItem="UpJ-y8-m1Z" secondAttribute="leading" constant="16" id="lCW-8P-U05"/>
                                     <constraint firstAttribute="trailing" secondItem="qw4-Jv-Ia0" secondAttribute="trailing" constant="16" id="vjK-1f-pDa"/>
                                 </constraints>
@@ -937,7 +938,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KjJ-FN-9cD">
-                                                <rect key="frame" x="0.0" y="27" width="342" height="140"/>
+                                                <rect key="frame" x="0.0" y="27.333333333333343" width="342" height="140"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="140" id="lLT-3O-ib0"/>
                                                 </constraints>

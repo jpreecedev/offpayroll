@@ -124,4 +124,9 @@ class AgentsVC : UIViewController, UITableViewDelegate, UITableViewDataSource {
         indicator.stopAnimating()
         indicator.hidesWhenStopped = true
     }
+    
+    @IBAction func fillOutFormBtnPressed(_ sender: Any) {
+        let url = URL(string: "https://forms.zohopublic.eu/james13/form/OffPayrollorgukagentlisting/formperma/8BNOPSK49dLkg9gWJ6Op61Tr1QBFh2njTZuvsKdxCaU")!
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    }
 }
