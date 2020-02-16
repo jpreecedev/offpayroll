@@ -19,7 +19,8 @@
 		775AB94A23EF02A30068FB6B /* ConsultanciesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775AB94923EF02A30068FB6B /* ConsultanciesVC.swift */; };
 		775AB94C23EF08390068FB6B /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775AB94B23EF08390068FB6B /* NotificationView.swift */; };
 		776ED75C23F8158800393DCA /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 776ED75A23F8158800393DCA /* Model.xcdatamodeld */; };
-		776ED75E23F815D100393DCA /* LikesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776ED75D23F815D100393DCA /* LikesService.swift */; };
+		776ED75E23F815D100393DCA /* OffPayrollService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776ED75D23F815D100393DCA /* OffPayrollService.swift */; };
+		776ED76023F8222100393DCA /* FlagAProblemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776ED75F23F8222100393DCA /* FlagAProblemVC.swift */; };
 		77C3760623E7381300E51C09 /* ViewWithDropShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C3760523E7381300E51C09 /* ViewWithDropShadow.swift */; };
 		77C3760A23E7445400E51C09 /* ClientVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C3760923E7445400E51C09 /* ClientVC.swift */; };
 		77C6920823E49BC600DFF6B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C6920723E49BC600DFF6B0 /* AppDelegate.swift */; };
@@ -54,7 +55,8 @@
 		775AB94923EF02A30068FB6B /* ConsultanciesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultanciesVC.swift; sourceTree = "<group>"; };
 		775AB94B23EF08390068FB6B /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		776ED75B23F8158800393DCA /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		776ED75D23F815D100393DCA /* LikesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesService.swift; sourceTree = "<group>"; };
+		776ED75D23F815D100393DCA /* OffPayrollService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffPayrollService.swift; sourceTree = "<group>"; };
+		776ED75F23F8222100393DCA /* FlagAProblemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagAProblemVC.swift; sourceTree = "<group>"; };
 		77C3760523E7381300E51C09 /* ViewWithDropShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewWithDropShadow.swift; sourceTree = "<group>"; };
 		77C3760923E7445400E51C09 /* ClientVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientVC.swift; sourceTree = "<group>"; };
 		77C6920423E49BC600DFF6B0 /* OffPayroll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OffPayroll.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,7 +111,7 @@
 		776ED75923F814BC00393DCA /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				776ED75D23F815D100393DCA /* LikesService.swift */,
+				776ED75D23F815D100393DCA /* OffPayrollService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -198,6 +200,7 @@
 				77C6920B23E49BC600DFF6B0 /* MainVC.swift */,
 				7755F1F723EFF2120058A720 /* ConsultancyDetailsVC.swift */,
 				775382D423F6A167008D0784 /* ContractDetailsVC.swift */,
+				776ED75F23F8222100393DCA /* FlagAProblemVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -338,10 +341,11 @@
 				7755F1FB23F015B50058A720 /* FairAgentMapper.swift in Sources */,
 				775382CF23F30DFA008D0784 /* ContractsVC.swift in Sources */,
 				776ED75C23F8158800393DCA /* Model.xcdatamodeld in Sources */,
-				776ED75E23F815D100393DCA /* LikesService.swift in Sources */,
+				776ED75E23F815D100393DCA /* OffPayrollService.swift in Sources */,
 				77E700AB23EDA13000338DB5 /* FairAgent.swift in Sources */,
 				775382D323F334DF008D0784 /* ContractTableViewCell.swift in Sources */,
 				77C6920823E49BC600DFF6B0 /* AppDelegate.swift in Sources */,
+				776ED76023F8222100393DCA /* FlagAProblemVC.swift in Sources */,
 				775AB94A23EF02A30068FB6B /* ConsultanciesVC.swift in Sources */,
 				77E700AD23EDC63F00338DB5 /* Agent.swift in Sources */,
 				77E700A723ED9E9500338DB5 /* AgentsVC.swift in Sources */,

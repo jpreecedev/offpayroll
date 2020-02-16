@@ -29,7 +29,7 @@ class ContractDetailsVC: UIViewController {
     @IBOutlet weak var looksGoodBtn: UIButton!
     
     private var _contract: Contract!
-    private var _likesService = LikesService()
+    private var _offPayrollService = OffPayrollService()
     
     var contract: Contract {
         get {
@@ -57,7 +57,7 @@ class ContractDetailsVC: UIViewController {
         startActivityIndicator()
         
         if let contractId = contract.id {
-            if (_likesService.hasPreviouslyLiked(contractId: contractId)) {
+            if (_offPayrollService.hasPreviouslyLiked(contractId: contractId)) {
                 disableLooksGoodButton()
             }
         }
@@ -115,13 +115,15 @@ class ContractDetailsVC: UIViewController {
     
     @IBAction func looksGoodPressed(_ sender: Any) {
         if let contractId = contract.id {
-            _likesService.likeContract(contractId: contractId)
+            _offPayrollService.likeContract(contractId: contractId)
             disableLooksGoodButton()
         }
     }
     
-    @IBAction func flagProblemPressed(_ sender: Any) {
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? FlagAProblemVC {
+            vc.contract = contract
+        }
     }
     
     func startActivityIndicator() {

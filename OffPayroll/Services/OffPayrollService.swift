@@ -1,5 +1,5 @@
 //
-//  LikesService.swift
+//  OffPayrollService.swift
 //  OffPayroll
 //
 //  Created by Jon Preece on 15/02/2020.
@@ -10,7 +10,7 @@ import CoreData
 import UIKit
 import Alamofire
 
-class LikesService {
+class OffPayrollService {
     typealias APIRequestCompletion = () -> Void
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -48,6 +48,16 @@ class LikesService {
             let error = error as NSError
             print(error)
             return false
+        }
+    }
+    
+    func flagAProblem(contractId: Int32, reason: String, furtherDetails: String?, onComplete: @escaping APIRequestCompletion) {
+        let url = URL(string: "https://jobs-api.offpayroll.org.uk/api/jobs/feedback")!
+        let body: Dictionary<String,Any> = ["feedback": reason, "feedbackDetails": furtherDetails ?? "", "jobId": contractId]
+        
+        Alamofire.request(url, method: .post, parameters: body, encoding: JSONEncoding.default, headers: nil)
+            .responseJSON { response in
+                onComplete()
         }
     }
     

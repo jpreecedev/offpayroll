@@ -110,10 +110,6 @@ class ContractsVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         return UITableViewCell()
     }
     
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-
-    }
-    
     func getDataFromAPI(url: URL, onComplete: @escaping CompanyDetailsAPIRequestCompletion) {
         Alamofire.request(url).responseJSON {
             response in
