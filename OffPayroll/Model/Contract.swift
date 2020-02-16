@@ -8,18 +8,10 @@
 
 import Foundation
 
-class Contract: Hashable {
-    
-    static func == (lhs: Contract, rhs: Contract) -> Bool {
-        return ObjectIdentifier(lhs) == ObjectIdentifier(rhs)
-    }
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(ObjectIdentifier(self).hashValue)
-    }
+class Contract {
     
     private var _id: Int32?
-    private var _datePosted: Date?
+    private var _datePosted: Date
     private var _hirer: String?
     private var _title: String?
     private var _location: String?
@@ -31,6 +23,10 @@ class Contract: Hashable {
     private var _duplicateCount: Int?
     private var _otherCount: Int?
     
+    init(date: String) {
+        _datePosted = Date.FromISOString(dateString: date, format: "yyyy-MM-dd'T'HH:mm:ss")
+    }
+    
     var id: Int32? {
         get {
             return _id
@@ -40,12 +36,9 @@ class Contract: Hashable {
         }
     }
     
-    var datePosted: Date? {
+    var datePosted: Date {
         get {
             return _datePosted
-        }
-        set {
-            _datePosted = newValue
         }
     }
     

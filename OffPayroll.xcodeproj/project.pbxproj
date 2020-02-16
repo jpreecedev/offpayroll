@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7731F34223F9599B005A8F30 /* OrderedDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7731F34123F9599B005A8F30 /* OrderedDictionary.swift */; };
+		7731F34423F95AD2005A8F30 /* ContractsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7731F34323F95AD2005A8F30 /* ContractsMapper.swift */; };
 		775382CF23F30DFA008D0784 /* ContractsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775382CE23F30DFA008D0784 /* ContractsVC.swift */; };
 		775382D123F31198008D0784 /* Contract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775382D023F31198008D0784 /* Contract.swift */; };
 		775382D323F334DF008D0784 /* ContractTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775382D223F334DF008D0784 /* ContractTableViewCell.swift */; };
@@ -43,6 +45,8 @@
 
 /* Begin PBXFileReference section */
 		01A9F52AE9908B04392473F5 /* Pods-OffPayroll.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OffPayroll.debug.xcconfig"; path = "Target Support Files/Pods-OffPayroll/Pods-OffPayroll.debug.xcconfig"; sourceTree = "<group>"; };
+		7731F34123F9599B005A8F30 /* OrderedDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderedDictionary.swift; sourceTree = "<group>"; };
+		7731F34323F95AD2005A8F30 /* ContractsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractsMapper.swift; sourceTree = "<group>"; };
 		775382CE23F30DFA008D0784 /* ContractsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractsVC.swift; sourceTree = "<group>"; };
 		775382D023F31198008D0784 /* Contract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contract.swift; sourceTree = "<group>"; };
 		775382D223F334DF008D0784 /* ContractTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractTableViewCell.swift; sourceTree = "<group>"; };
@@ -104,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				7755F1FA23F015B50058A720 /* FairAgentMapper.swift */,
+				7731F34323F95AD2005A8F30 /* ContractsMapper.swift */,
 			);
 			path = Mappers;
 			sourceTree = "<group>";
@@ -185,6 +190,7 @@
 			children = (
 				77E700A423E9DADC00338DB5 /* Date.swift */,
 				7759AAEA23F6B76400278E86 /* Button.swift */,
+				7731F34123F9599B005A8F30 /* OrderedDictionary.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -343,6 +349,8 @@
 				776ED75C23F8158800393DCA /* Model.xcdatamodeld in Sources */,
 				776ED75E23F815D100393DCA /* OffPayrollService.swift in Sources */,
 				77E700AB23EDA13000338DB5 /* FairAgent.swift in Sources */,
+				7731F34423F95AD2005A8F30 /* ContractsMapper.swift in Sources */,
+				7731F34223F9599B005A8F30 /* OrderedDictionary.swift in Sources */,
 				775382D323F334DF008D0784 /* ContractTableViewCell.swift in Sources */,
 				77C6920823E49BC600DFF6B0 /* AppDelegate.swift in Sources */,
 				776ED76023F8222100393DCA /* FlagAProblemVC.swift in Sources */,

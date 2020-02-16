@@ -17,7 +17,7 @@ class ContractsVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     @IBOutlet weak var contractsTabBarItem: UITabBarItem!
     
     var indicator = UIActivityIndicatorView()
-    var contracts = Dictionary<String, [Contract]>()
+    var contracts = OrderedDictionary<String, [Contract]>()
     
     let sectionHeaderHeight: CGFloat = 35
     
@@ -37,10 +37,9 @@ class ContractsVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
             var contracts = [Contract]()
             
             for contract in data {
-                let newContract = Contract()
+                let newContract = Contract(date: contract["datePosted"] as! String)
                 
                 newContract.id = contract["id"] as? Int32
-                newContract.datePosted = Date.FromISOString(dateString: contract["datePosted"] as! String, format: "yyyy-MM-dd'T'HH:mm:ss")
                 newContract.hirer = contract["hirer"] as? String
                 newContract.title = contract["title"] as? String
                 newContract.location = contract["location"] as? String
@@ -55,9 +54,8 @@ class ContractsVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
                 contracts.append(newContract)
             }
             
-            contracts = contracts.sorted(by: { $0.datePosted!.compare($1.datePosted!) == .orderedDescending })
+            self.contracts = ContractsMapper.mapFromDictionary(contracts: Dictionary(grouping: contracts, by: { Date.ToFormattedDateString(date: $0.datePosted) }))
             
-            self.contracts = Dictionary(grouping: contracts, by: { Date.ToFormattedDateString(date: $0.datePosted!) })
             self.contractsTabBarItem.badgeValue = "\(contracts.count)"
             self.contractsTabBarItem.badgeColor = UIColor(red: 40/255, green:167/255, blue:69/255, alpha: 1)
             self.tableView.reloadData()
@@ -93,7 +91,7 @@ class ContractsVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "ContractTableViewCell") as? ContractTableViewCell {
-
+            
             let contract: Contract = Array(contracts)[indexPath.section].value[indexPath.row]
             
             if indexPath.row % 2 == 0 {
