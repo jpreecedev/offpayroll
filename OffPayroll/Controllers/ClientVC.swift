@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-typealias CompanyDetailsAPIRequestCompletion = (_ errMsg: String?, _ data: Array<AnyObject>) -> Void
+typealias CompanyDetailsAPIRequestCompletion = (_ errMsg: String?, _ data: Array<AnyObject>?) -> Void
 
 class ClientDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSource  {
     
@@ -48,17 +48,19 @@ class ClientDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         companyLogo.image = _company.image
         
         getDataFromAPI(url: URL(string: "https://offpayroll.org.uk/api/companies/\(_company.slug)")!) { (err, data) in
-            for review in data {
-                let dateSubmitted = Date.FromISOString(dateString: review["dateSubmitted"] as! String, format: "yyyy-MM-dd'T'HH:mm:ss.SSS")
-                let situation = review["situation"] as! String
-                let situationOtherDetails = review["situationOtherDetails"] as! String
-                let comments = "\"\((review["comments"] as! String).trimmingCharacters(in: .whitespacesAndNewlines))\""
-                self.comments.append(Comment(situation: situation, situationOtherDetails: situationOtherDetails, comments: comments, dateSubmitted: dateSubmitted))
+            if let data = data {
+                for review in data {
+                    let dateSubmitted = Date.FromISOString(dateString: review["dateSubmitted"] as! String, format: "yyyy-MM-dd'T'HH:mm:ss.SSS")
+                    let situation = review["situation"] as! String
+                    let situationOtherDetails = review["situationOtherDetails"] as! String
+                    let comments = "\"\((review["comments"] as! String).trimmingCharacters(in: .whitespacesAndNewlines))\""
+                    self.comments.append(Comment(situation: situation, situationOtherDetails: situationOtherDetails, comments: comments, dateSubmitted: dateSubmitted))
+                }
+                self.tableView.reloadData()
+                self.stopActivityIndicator()
+                self.tableView.isHidden = false
+                self.selectedLabel.isHidden = false
             }
-            self.tableView.reloadData()
-            self.stopActivityIndicator()
-            self.tableView.isHidden = false
-            self.selectedLabel.isHidden = false
         }
     }
     

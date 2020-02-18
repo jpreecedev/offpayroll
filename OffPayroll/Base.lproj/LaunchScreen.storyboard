@@ -15,12 +15,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="5o9-li-phF">
-                                <rect key="frame" x="96" y="239" width="222" height="258"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="35Q-e6-INt">
+                                <rect key="frame" x="68.666666666666686" y="235" width="277" height="266"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="THd-HQ-hJ9">
+                                        <rect key="frame" x="0.0" y="0.0" width="277" height="266"/>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.070547916000000002" green="0.14903247359999999" blue="0.21957555409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="35Q-e6-INt" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="F0z-OJ-zLw"/>
+                            <constraint firstItem="35Q-e6-INt" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="lZQ-EF-RMy"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -30,6 +38,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Logo" width="200" height="233"/>
+        <image name="logo" width="277" height="266"/>
     </resources>
 </document>
