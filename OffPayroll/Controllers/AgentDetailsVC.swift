@@ -43,7 +43,6 @@ class AgentDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.separatorInset = UIEdgeInsets.zero
         tableView.isHidden = true
         
-        startActivityIndicator()
         
         agentLogo.image = UIImage(named: "building-solid-off")
         agentName.text = _agent.name
@@ -56,7 +55,6 @@ class AgentDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
                 self.comments.append(comment)
             }
             self.tableView.reloadData()
-            self.stopActivityIndicator()
             self.tableView.isHidden = false
         }
     }

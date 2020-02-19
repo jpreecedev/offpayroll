@@ -21,6 +21,19 @@ class Agent {
         return _reviewSituations
     }
     
+    var last12Reviews: Array<String>? {
+        get {
+            if let reviewSituations = _reviewSituations {
+                if (reviewSituations.count < 12) {
+                    return reviewSituations
+                }
+                
+                return Array(reviewSituations[(reviewSituations.count - 12)...])
+            }
+            return nil
+        }
+    }
+    
     init(name: String, reviewSituations: [String]) {
         _name = name
         _reviewSituations = reviewSituations
