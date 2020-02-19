@@ -37,9 +37,11 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 let slug = company["slug"] as! String
                 let commentCount = company["commentCount"] as! Int
                 let reviewSituations = company["reviewSituations"] as! Array<String>
+                let situation = company["situation"] as? String
                 
                 let newCompany = Company(name: name, slug: slug, commentCount: commentCount)
                 newCompany.reviewSituations = reviewSituations
+                newCompany.situation = situation
                 
                 self.companies.append(newCompany)
             }

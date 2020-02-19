@@ -51,6 +51,7 @@ class CommentTableViewCell: UITableViewCell {
             situationLabel.text = comment.situationOtherDetails != "" ? "Other: \(comment.situationOtherDetails)" : ""
             situationIcon.image = UIImage(named: "question-circle-solid")
             situationLabel.textColor = UIColor(red: 33/255, green: 37/255, blue: 41/255, alpha: 1)
+            break
         }
         
         commentDateLabel.text = "\(Date.ToFormattedDateString(date: comment.dateSubmitted))"

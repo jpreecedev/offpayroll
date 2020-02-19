@@ -15,6 +15,7 @@ class Company {
     private var _commentCount: Int!
     private var _image : UIImage!
     private var _reviewSituations: Array<String>?
+    private var _situation: String?
     
     var name :  String {
         return _name
@@ -59,6 +60,15 @@ class Company {
                 return Array(reviewSituations[(reviewSituations.count - 12)...])
             }
             return nil
+        }
+    }
+    
+    var situation: String? {
+        get {
+            return _situation
+        }
+        set {
+            _situation = newValue
         }
     }
     

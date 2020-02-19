@@ -682,11 +682,20 @@
                                                         </stackView>
                                                     </subviews>
                                                 </stackView>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="question-circle-solid" translatesAutoresizingMaskIntoConstraints="NO" id="bas-4p-gMb">
+                                                    <rect key="frame" x="353" y="24.666666666666664" width="18" height="18"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="18" id="JOl-rM-f22"/>
+                                                        <constraint firstAttribute="width" constant="18" id="fAe-Vk-f71"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="mK6-Wr-3r8" firstAttribute="leading" secondItem="6Os-Vn-10K" secondAttribute="trailing" constant="8" id="Ctl-6S-PRh"/>
                                                 <constraint firstItem="6Os-Vn-10K" firstAttribute="leading" secondItem="oP1-xd-Srp" secondAttribute="leading" constant="8" id="ECG-Nv-KR6"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="bas-4p-gMb" secondAttribute="trailing" constant="4" id="GWd-l8-yK8"/>
                                                 <constraint firstAttribute="bottom" secondItem="6Os-Vn-10K" secondAttribute="bottom" constant="8" id="dgh-cM-e9F"/>
+                                                <constraint firstItem="bas-4p-gMb" firstAttribute="centerY" secondItem="oP1-xd-Srp" secondAttribute="centerY" id="guO-dr-kKk"/>
                                                 <constraint firstItem="6Os-Vn-10K" firstAttribute="top" secondItem="oP1-xd-Srp" secondAttribute="top" constant="8" id="hzZ-Bv-i7F"/>
                                                 <constraint firstItem="mK6-Wr-3r8" firstAttribute="centerY" secondItem="oP1-xd-Srp" secondAttribute="centerY" id="rMQ-oR-rtp"/>
                                             </constraints>
@@ -695,6 +704,7 @@
                                             <outlet property="companyLogo" destination="6Os-Vn-10K" id="JT6-zf-Smf"/>
                                             <outlet property="companyName" destination="eZi-rI-1Iv" id="jgx-96-LQQ"/>
                                             <outlet property="numberOfComments" destination="1nl-wL-YYo" id="jpk-2P-skg"/>
+                                            <outlet property="overallStatus" destination="bas-4p-gMb" id="lqw-jQ-vE8"/>
                                             <outlet property="statuses" destination="sJR-B6-tkm" id="xPu-W6-Xj9"/>
                                             <segue destination="LAd-bQ-Nmy" kind="show" id="yAP-pl-xe9"/>
                                         </connections>
@@ -712,7 +722,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2480" y="563"/>
+            <point key="canvasLocation" x="-2482.608695652174" y="562.5"/>
         </scene>
         <!--Contract DetailsVC-->
         <scene sceneID="Rly-6V-p9i">
@@ -1812,6 +1822,7 @@
         <image name="calendar" width="28" height="26"/>
         <image name="error" width="402" height="402"/>
         <image name="map-marker-alt-solid" width="18.666666030883789" height="25"/>
+        <image name="question-circle-solid" width="496" height="483"/>
         <image name="tab-book-solid-off" width="21.666666030883789" height="25"/>
         <image name="tab-book-solid-on" width="22" height="25"/>
         <image name="tab-building-solid-off" width="22" height="25"/>

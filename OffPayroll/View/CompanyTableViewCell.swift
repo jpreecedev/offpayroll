@@ -14,6 +14,7 @@ class CompanyTableViewCell: UITableViewCell {
     @IBOutlet weak var companyName: UILabel!
     @IBOutlet weak var numberOfComments: UILabel!
     @IBOutlet weak var statuses: UIStackView!
+    @IBOutlet weak var overallStatus: UIImageView!
     
     private var _company: Company!
     
@@ -21,15 +22,33 @@ class CompanyTableViewCell: UITableViewCell {
         return _company
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
     func configureCell(company: Company) {
         _company = company
         companyName.text = company.name
         numberOfComments.text = "\(company.commentCount)"
+        
+        if let situation = company.situation {
+            switch situation {
+            case "ban":
+                overallStatus.image = UIImage(named: "error")
+                break
+            case "fair":
+                overallStatus.image = UIImage(named: "check-circle-solid")
+                break
+            case "unfair":
+                overallStatus.image = UIImage(named: "exclamation-triangle-solid")
+                break
+            case "exceptions":
+                overallStatus.image = UIImage(named: "exclamation-triangle-solid")
+                break
+            case "permie":
+                overallStatus.image = UIImage(named: "error")
+                break
+            default:
+                overallStatus.image = UIImage(named: "question-circle-solid")
+                break
+            }
+        }
         
         for view in statuses.subviews{
             view.removeFromSuperview()
@@ -40,7 +59,6 @@ class CompanyTableViewCell: UITableViewCell {
                 statuses.addArrangedSubview(StatusView.create(status: situation))
             }
         }
-        
         
         let url = URL(string: "https://logo.clearbit.com/\(company.slug)?size=141")
         
