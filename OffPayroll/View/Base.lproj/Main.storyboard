@@ -105,53 +105,54 @@
                                             <rect key="frame" x="0.0" y="0.0" width="383" height="67"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="building-solid-off" translatesAutoresizingMaskIntoConstraints="NO" id="loU-pW-06j">
-                                                    <rect key="frame" x="8" y="8" width="67.333333333333329" height="51"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="67.333333333333329" id="8em-Id-5Q3"/>
-                                                        <constraint firstAttribute="height" constant="51" id="Hy7-JD-kzb"/>
-                                                        <constraint firstAttribute="width" secondItem="loU-pW-06j" secondAttribute="height" multiplier="33:25" id="eGK-JU-MkF"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <stackView opaque="NO" contentMode="center" ambiguous="YES" axis="vertical" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="WrX-ft-qtH">
-                                                    <rect key="frame" x="83.333333333333343" y="16" width="291.66666666666663" height="89"/>
+                                                <stackView opaque="NO" contentMode="center" ambiguous="YES" axis="vertical" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="gun-n2-fly">
+                                                    <rect key="frame" x="83.333333333333343" y="7.6666666666666714" width="291.66666666666663" height="105.66666666666669"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Evolution" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZNm-O5-2B7">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Evolution" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fcs-Sj-9EA">
                                                             <rect key="frame" x="0.0" y="0.0" width="68" height="18"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="18" id="YwY-Dh-d4R"/>
-                                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="200" id="nAI-oG-aRH"/>
+                                                                <constraint firstAttribute="height" constant="18" id="Ks0-d9-K4P"/>
+                                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="200" id="cNN-UZ-aOJ"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Collaborating with clients" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PsM-BX-mG5">
-                                                            <rect key="frame" x="0.0" y="20" width="163.33333333333334" height="17"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="59S-ku-eYz">
+                                                            <rect key="frame" x="0.0" y="19.999999999999996" width="290.66666666666669" height="33.666666666666657"/>
+                                                            <string key="text">Collaborating with clients Collaborating with clients Collaborating with clients Collaborating with clients Collaborating with clients</string>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="eHg-9l-HPU" userLabel="Statuses">
-                                                            <rect key="frame" x="0.0" y="39" width="50" height="50"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Uen-zh-WQm" userLabel="Statuses">
+                                                            <rect key="frame" x="0.0" y="55.666666666666671" width="50" height="50"/>
                                                         </stackView>
                                                     </subviews>
                                                 </stackView>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="building-solid-off" translatesAutoresizingMaskIntoConstraints="NO" id="6y2-DL-YOc">
+                                                    <rect key="frame" x="8" y="8" width="67.333333333333329" height="51"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="51" id="VmF-eF-8qb"/>
+                                                        <constraint firstAttribute="width" constant="67.329999999999998" id="mM5-ES-kKy"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="WrX-ft-qtH" secondAttribute="trailing" constant="8" id="BsQ-7i-l2r"/>
-                                                <constraint firstItem="WrX-ft-qtH" firstAttribute="leading" secondItem="loU-pW-06j" secondAttribute="trailing" constant="8" id="ERJ-fX-NKg"/>
-                                                <constraint firstAttribute="bottom" secondItem="loU-pW-06j" secondAttribute="bottom" constant="8" id="NbE-Q9-bj3"/>
-                                                <constraint firstItem="loU-pW-06j" firstAttribute="leading" secondItem="yve-fY-dXZ" secondAttribute="leading" constant="8" id="eZy-Hd-FV5"/>
-                                                <constraint firstItem="WrX-ft-qtH" firstAttribute="centerY" secondItem="yve-fY-dXZ" secondAttribute="centerY" id="pap-Am-MiJ"/>
-                                                <constraint firstItem="loU-pW-06j" firstAttribute="top" secondItem="yve-fY-dXZ" secondAttribute="top" constant="8" id="sME-5X-t7t"/>
+                                                <constraint firstItem="6y2-DL-YOc" firstAttribute="leading" secondItem="yve-fY-dXZ" secondAttribute="leading" constant="8" id="2Nb-hE-Al0"/>
+                                                <constraint firstAttribute="trailing" secondItem="gun-n2-fly" secondAttribute="trailing" constant="8" id="8Fi-jT-pkd"/>
+                                                <constraint firstItem="6y2-DL-YOc" firstAttribute="width" secondItem="6y2-DL-YOc" secondAttribute="height" multiplier="33:25" id="981-3u-3XJ"/>
+                                                <constraint firstItem="6y2-DL-YOc" firstAttribute="top" secondItem="yve-fY-dXZ" secondAttribute="top" constant="8" id="LdG-bi-bqu"/>
+                                                <constraint firstItem="gun-n2-fly" firstAttribute="centerY" secondItem="yve-fY-dXZ" secondAttribute="centerY" id="lFG-fI-c8N"/>
+                                                <constraint firstAttribute="bottom" secondItem="6y2-DL-YOc" secondAttribute="bottom" constant="8" id="vpo-6C-Jcf"/>
+                                                <constraint firstItem="gun-n2-fly" firstAttribute="leading" secondItem="6y2-DL-YOc" secondAttribute="trailing" constant="8" id="y75-rM-9Si"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="agentDescription" destination="PsM-BX-mG5" id="wCj-0o-Kdb"/>
-                                            <outlet property="agentImage" destination="loU-pW-06j" id="DC3-Pf-mhm"/>
-                                            <outlet property="agentName" destination="ZNm-O5-2B7" id="LZz-3h-smf"/>
-                                            <outlet property="statuses" destination="eHg-9l-HPU" id="TUu-nE-ZHS"/>
+                                            <outlet property="agentDescription" destination="59S-ku-eYz" id="X1w-Sd-OOm"/>
+                                            <outlet property="agentImage" destination="6y2-DL-YOc" id="Zc2-5g-7Jg"/>
+                                            <outlet property="agentName" destination="Fcs-Sj-9EA" id="PAR-1A-WQd"/>
+                                            <outlet property="statuses" destination="Uen-zh-WQm" id="5b3-i7-8Qi"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
