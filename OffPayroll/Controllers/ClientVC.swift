@@ -16,6 +16,7 @@ class ClientDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     @IBOutlet weak var selectedLabel: UILabel!
     @IBOutlet weak var companyLogo: UIImageView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var statusHeadingIndicator: StatusHeadingIndicatorView!
     
     private var _company: Company!
     
@@ -41,6 +42,7 @@ class ClientDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         tableView.separatorInset = UIEdgeInsets.zero
         tableView.isHidden = true
         selectedLabel.isHidden = true
+        statusHeadingIndicator.status = _company.situation
         
         startActivityIndicator()
         

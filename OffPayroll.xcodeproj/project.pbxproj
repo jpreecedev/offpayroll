@@ -42,6 +42,7 @@
 		778875A023FC6E9900E74827 /* Raleway-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7788758E23FC6E9900E74827 /* Raleway-Black.ttf */; };
 		778875A123FC6E9900E74827 /* Raleway-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7788758F23FC6E9900E74827 /* Raleway-Regular.ttf */; };
 		778875A523FD198500E74827 /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778875A423FD198500E74827 /* StatusView.swift */; };
+		779651AC23FDDD09007CD952 /* StatusHeadingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779651AB23FDDD09007CD952 /* StatusHeadingIndicatorView.swift */; };
 		779B1BBF23F98118000ED468 /* EmailSubscriptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779B1BBE23F98118000ED468 /* EmailSubscriptionService.swift */; };
 		77C3760623E7381300E51C09 /* ViewWithDropShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C3760523E7381300E51C09 /* ViewWithDropShadow.swift */; };
 		77C3760A23E7445400E51C09 /* ClientVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C3760923E7445400E51C09 /* ClientVC.swift */; };
@@ -100,6 +101,7 @@
 		7788758E23FC6E9900E74827 /* Raleway-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Black.ttf"; sourceTree = "<group>"; };
 		7788758F23FC6E9900E74827 /* Raleway-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Regular.ttf"; sourceTree = "<group>"; };
 		778875A423FD198500E74827 /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
+		779651AB23FDDD09007CD952 /* StatusHeadingIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusHeadingIndicatorView.swift; sourceTree = "<group>"; };
 		779B1BBE23F98118000ED468 /* EmailSubscriptionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSubscriptionService.swift; sourceTree = "<group>"; };
 		77C3760523E7381300E51C09 /* ViewWithDropShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewWithDropShadow.swift; sourceTree = "<group>"; };
 		77C3760923E7445400E51C09 /* ClientVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientVC.swift; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 				775AB94B23EF08390068FB6B /* NotificationView.swift */,
 				775382D223F334DF008D0784 /* ContractTableViewCell.swift */,
 				778875A423FD198500E74827 /* StatusView.swift */,
+				779651AB23FDDD09007CD952 /* StatusHeadingIndicatorView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -434,6 +437,7 @@
 				778875A523FD198500E74827 /* StatusView.swift in Sources */,
 				7755F1FB23F015B50058A720 /* FairAgentMapper.swift in Sources */,
 				775382CF23F30DFA008D0784 /* ContractsVC.swift in Sources */,
+				779651AC23FDDD09007CD952 /* StatusHeadingIndicatorView.swift in Sources */,
 				776ED75C23F8158800393DCA /* Model.xcdatamodeld in Sources */,
 				776ED75E23F815D100393DCA /* OffPayrollService.swift in Sources */,
 				77E700AB23EDA13000338DB5 /* FairAgent.swift in Sources */,
