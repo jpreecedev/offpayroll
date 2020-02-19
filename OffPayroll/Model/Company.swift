@@ -14,6 +14,7 @@ class Company {
     private var _slug: String!
     private var _commentCount: Int!
     private var _image : UIImage!
+    private var _reviewSituations: Array<String>?
     
     var name :  String {
         return _name
@@ -36,6 +37,28 @@ class Company {
         }
         set {
             _image = newValue
+        }
+    }
+    
+    var reviewSituations: Array<String>? {
+        get {
+            return _reviewSituations
+        }
+        set {
+            _reviewSituations = newValue
+        }
+    }
+    
+    var last12Reviews: Array<String>? {
+        get {
+            if let reviewSituations = _reviewSituations {
+                if (reviewSituations.count < 12) {
+                    return reviewSituations
+                }
+                
+                return Array(reviewSituations[(reviewSituations.count - 12)...])
+            }
+            return nil
         }
     }
     

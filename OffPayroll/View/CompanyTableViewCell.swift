@@ -13,6 +13,7 @@ class CompanyTableViewCell: UITableViewCell {
     @IBOutlet weak var companyLogo: UIImageView!
     @IBOutlet weak var companyName: UILabel!
     @IBOutlet weak var numberOfComments: UILabel!
+    @IBOutlet weak var statuses: UIStackView!
     
     private var _company: Company!
     
@@ -29,6 +30,17 @@ class CompanyTableViewCell: UITableViewCell {
         _company = company
         companyName.text = company.name
         numberOfComments.text = "\(company.commentCount)"
+        
+        for view in statuses.subviews{
+            view.removeFromSuperview()
+        }
+        
+        if let situations = company.last12Reviews {
+            for situation in situations {
+                statuses.addArrangedSubview(StatusView.create(status: situation))
+            }
+        }
+        
         
         let url = URL(string: "https://logo.clearbit.com/\(company.slug)?size=141")
         

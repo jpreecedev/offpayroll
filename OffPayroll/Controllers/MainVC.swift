@@ -36,7 +36,12 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 let name = company["name"] as! String
                 let slug = company["slug"] as! String
                 let commentCount = company["commentCount"] as! Int
-                self.companies.append(Company(name: name, slug: slug, commentCount: commentCount))
+                let reviewSituations = company["reviewSituations"] as! Array<String>
+                
+                let newCompany = Company(name: name, slug: slug, commentCount: commentCount)
+                newCompany.reviewSituations = reviewSituations
+                
+                self.companies.append(newCompany)
             }
             self.tableView.reloadData()
             self.stopActivityIndicator()
