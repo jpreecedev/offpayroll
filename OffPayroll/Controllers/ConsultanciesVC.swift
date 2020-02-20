@@ -12,7 +12,8 @@ import Alamofire
 class ConsultanciesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
-
+    @IBOutlet weak var fillOutFormBtn: UIButton!
+    
     var fairAgents = [FairAgent]()
     var indicator = UIActivityIndicatorView()
 
@@ -91,4 +92,7 @@ class ConsultanciesVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         }
     }
 
+    @IBAction func fillOutFormBtnPressed(_ sender: Any) {
+        UIApplication.shared.open(URL(string: "https://forms.zohopublic.eu/james13/form/OffPayrollorgukagentlisting/formperma/8BNOPSK49dLkg9gWJ6Op61Tr1QBFh2njTZuvsKdxCaU")!, options: [:], completionHandler: nil)
+    }
 }
