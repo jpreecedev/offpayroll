@@ -35,6 +35,7 @@ class ConsultancyDetailsVC: UIViewController {
     @IBOutlet weak var insurancesLabel: UILabel!
     @IBOutlet weak var approachHeaderLabel: UILabel!
     @IBOutlet weak var approachLabel: UILabel!
+    @IBOutlet weak var statusIndicator: StatusHeadingIndicatorView!
     
     @IBOutlet weak var scrollView: UIScrollView!
     

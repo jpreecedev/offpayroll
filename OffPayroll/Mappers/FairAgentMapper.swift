@@ -13,7 +13,7 @@ class FairAgentMapper {
     private static func mapStandardFields(data: AnyObject) -> FairAgent {
         let name = data["name"] as! String
         let isConsultancy = data["isConsultancy"] as! Bool
-        let shortDescription = data["shortDescription"] as! String
+        let shortDescription = data["shortDescription"] as? String ?? ""
         let slug = data["slug"] as! String
         
         let fairAgent = FairAgent(name: name, isConsultancy: isConsultancy, shortDescription: shortDescription, slug: slug)

@@ -16,6 +16,8 @@ class ContractDetailsVC: UIViewController {
     var indicator = UIActivityIndicatorView()
     var contractDetails = ContractDetails()
     
+    @IBOutlet weak var jobTitleHeaderLabel: UILabel!
+    @IBOutlet weak var jobTitleLabel: UILabel!
     @IBOutlet weak var hirerHeaderLabel: UILabel!
     @IBOutlet weak var hirerLabel: UILabel!
     @IBOutlet weak var locationHeaderLabel: UILabel!
@@ -66,6 +68,7 @@ class ContractDetailsVC: UIViewController {
             
             self.contractDetails = data
             
+            self.toggleControl(headerLabel: self.jobTitleHeaderLabel, bodyLabel: self.jobTitleLabel, value: data.title)
             self.toggleControl(headerLabel: self.hirerHeaderLabel, bodyLabel: self.hirerLabel, value: data.hirer)
             self.toggleControl(headerLabel: self.locationHeaderLabel, bodyLabel: self.locationLabel, value: data.location)
             self.toggleControl(headerLabel: self.rateHeaderLabel, bodyLabel: self.rateLabel, value: data.rateFormatted)
