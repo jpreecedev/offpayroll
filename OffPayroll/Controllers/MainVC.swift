@@ -61,7 +61,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 let attachmentString = NSAttributedString(attachment: attachment)
                 let str = NSMutableAttributedString(string: "")
                 str.append(attachmentString)
-                str.append(NSAttributedString(string: "\n\nUnable to retrieve data.\nPlease check you are connected to the internet"))
+                str.append(NSAttributedString(string: "\n\nUnable to retrieve data.\nPlease check your internet connection"))
                 
                 let noDataLabel: UILabel = UILabel()
                 noDataLabel.textAlignment = NSTextAlignment.center
