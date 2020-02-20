@@ -30,18 +30,38 @@ class ConsultanciesVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         startActivityIndicator()
 
         getDataFromAPI(url: URL(string: "https://offpayroll.org.uk/api/agents/fairagents")!) { (err, data) in
-            for item in data {
-                
-                let fairAgent = FairAgentMapper.mapFromAPI(data: item)
+            if let data = data {
+                for item in data {
+                    
+                    let fairAgent = FairAgentMapper.mapFromAPI(data: item)
 
-                if (fairAgent.isConsultancy) {
-                    self.fairAgents.append(fairAgent)
+                    if (fairAgent.isConsultancy) {
+                        self.fairAgents.append(fairAgent)
+                    }
                 }
             }
 
             self.tableView.reloadData()
             self.stopActivityIndicator()
             self.tableView.isHidden = false
+            self.tableView.backgroundView = nil
+            
+            if err != nil {
+                let attachment = NSTextAttachment()
+                attachment.image = UIImage(systemName: "exclamationmark.icloud")
+                attachment.bounds = CGRect(x: 0, y: 0, width: 100, height: 76)
+                let attachmentString = NSAttributedString(attachment: attachment)
+                let str = NSMutableAttributedString(string: "")
+                str.append(attachmentString)
+                str.append(NSAttributedString(string: "\n\nUnable to retrieve data.\nPlease check you are connected to the internet"))
+                
+                let noDataLabel: UILabel = UILabel()
+                noDataLabel.textAlignment = NSTextAlignment.center
+                noDataLabel.numberOfLines = 0
+                noDataLabel.attributedText = str
+                
+                self.tableView.backgroundView = noDataLabel
+            }
         }
     }
 
@@ -62,6 +82,12 @@ class ConsultanciesVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     func getDataFromAPI(url: URL, onComplete: @escaping AgentsAPIRequestCompletion) {
         Alamofire.request(url).responseJSON {
             response in
+            guard response.result.isSuccess else {
+                if let error = response.error {
+                    onComplete(error.localizedDescription, nil)
+                }
+                return
+            }
             let result = response.result
             if let dict = result.value as? Array<AnyObject> {
                 onComplete(nil, dict)

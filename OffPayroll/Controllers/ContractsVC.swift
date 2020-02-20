@@ -18,6 +18,7 @@ class ContractsVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var subscriptionTitleLabel: UILabel!
     @IBOutlet weak var subscribeBtn: UIButton!
+    @IBOutlet weak var titleLabel: UILabel!
     
     var indicator = UIActivityIndicatorView()
     
@@ -35,6 +36,7 @@ class ContractsVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         tableView.layoutMargins = UIEdgeInsets.zero
         tableView.separatorInset = UIEdgeInsets.zero
         tableView.isHidden = true
+        titleLabel.isHidden = false
         
         updateSubscriptionUI()
         
@@ -96,6 +98,7 @@ class ContractsVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
                 noDataLabel.attributedText = str
                 
                 self.tableView.backgroundView = noDataLabel
+                self.titleLabel.isHidden = true
             }
         }
     }

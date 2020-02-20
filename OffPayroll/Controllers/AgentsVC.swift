@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-typealias AgentsAPIRequestCompletion = (_ errMsg: String?, _ data: Array<AnyObject>) -> Void
+typealias AgentsAPIRequestCompletion = (_ errMsg: String?, _ data: Array<AnyObject>?) -> Void
 
 class AgentsVC : UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -34,25 +34,47 @@ class AgentsVC : UIViewController, UITableViewDelegate, UITableViewDataSource {
         startActivityIndicator()
         
         getDataFromAPI(url: URL(string: "https://offpayroll.org.uk/api/agents/fairagents")!) { (err, data) in
-            for item in data {
-                let agent = FairAgentMapper.mapFromAPI(data: item)
-                
-                if (!agent.isConsultancy) {
-                    self.fairAgents.append(agent)
+            if let data = data {
+                for item in data {
+                    let agent = FairAgentMapper.mapFromAPI(data: item)
+                    
+                    if (!agent.isConsultancy) {
+                        self.fairAgents.append(agent)
+                    }
                 }
             }
             
             self.tableView.reloadData()
             self.stopActivityIndicator()
             self.tableView.isHidden = false
+            self.tableView.backgroundView = nil
+            
+            if err != nil {
+                let attachment = NSTextAttachment()
+                attachment.image = UIImage(systemName: "exclamationmark.icloud")
+                attachment.bounds = CGRect(x: 0, y: 0, width: 100, height: 76)
+                let attachmentString = NSAttributedString(attachment: attachment)
+                let str = NSMutableAttributedString(string: "")
+                str.append(attachmentString)
+                str.append(NSAttributedString(string: "\n\nUnable to retrieve data.\nPlease check you are connected to the internet"))
+                
+                let noDataLabel: UILabel = UILabel()
+                noDataLabel.textAlignment = NSTextAlignment.center
+                noDataLabel.numberOfLines = 0
+                noDataLabel.attributedText = str
+                
+                self.tableView.backgroundView = noDataLabel
+            }
         }
         
         getDataFromAPI(url: URL(string: "https://offpayroll.org.uk/api/agents")!) { (err, data) in
-            for agent in data {
-                let name = agent["name"] as! String
-                let reviewSituations = agent["reviewSituations"] as! [String]
-                
-                self.allAgents.append(Agent(name: name, reviewSituations: reviewSituations))
+            if let data = data {
+                for agent in data {
+                    let name = agent["name"] as! String
+                    let reviewSituations = agent["reviewSituations"] as! [String]
+                    
+                    self.allAgents.append(Agent(name: name, reviewSituations: reviewSituations))
+                }
             }
         }
     }
@@ -103,6 +125,12 @@ class AgentsVC : UIViewController, UITableViewDelegate, UITableViewDataSource {
     func getDataFromAPI(url: URL, onComplete: @escaping AgentsAPIRequestCompletion) {
         Alamofire.request(url).responseJSON {
             response in
+            guard response.result.isSuccess else {
+                if let error = response.error {
+                    onComplete(error.localizedDescription, nil)
+                }
+                return
+            }
             let result = response.result
             if let dict = result.value as? Array<AnyObject> {
                 onComplete(nil, dict)

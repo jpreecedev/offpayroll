@@ -409,6 +409,7 @@
                         <outlet property="subscribeBtn" destination="DoU-D3-rGr" id="rpu-sW-jeb"/>
                         <outlet property="subscriptionTitleLabel" destination="jg1-BA-Tcz" id="fP9-He-dbd"/>
                         <outlet property="tableView" destination="293-Ts-q8i" id="cgy-s8-WtA"/>
+                        <outlet property="titleLabel" destination="80Z-9n-oxn" id="6Zj-Dz-eCl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JQh-FX-p4U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
