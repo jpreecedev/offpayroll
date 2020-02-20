@@ -14,6 +14,7 @@ typealias CompaniesAPIRequestCompletion = (_ errMsg: String?, _ data: [Dictionar
 class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var shareFeedbackButton: UIButton!
     
     var companies = [Company]()
     var indicator = UIActivityIndicatorView()
@@ -99,6 +100,10 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func stopActivityIndicator() {
         indicator.stopAnimating()
         indicator.hidesWhenStopped = true
+    }
+    
+    @IBAction func shareFeedbackBtnPressed(_ sender: Any) {
+        UIApplication.shared.open(URL(string: "https://offpayroll.org.uk/lookup")!, options: [:], completionHandler: nil)
     }
 }
 

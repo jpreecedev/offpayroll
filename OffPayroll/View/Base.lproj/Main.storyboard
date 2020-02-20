@@ -600,9 +600,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pPy-D0-JSS">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pPy-D0-JSS">
                                 <rect key="frame" x="0.0" y="44" width="414" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="OffPayroll.org.uk" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Guo-89-f3r">
                                         <rect key="frame" x="8" y="8" width="398" height="42"/>
@@ -620,10 +619,63 @@
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.070547916000000002" green="0.14903247359999999" blue="0.21957555409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="PaH-Fx-dGk"/>
+                                </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zE1-j9-VyY">
-                                <rect key="frame" x="0.0" y="124" width="414" height="738"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t7q-AM-W25">
+                                <rect key="frame" x="0.0" y="713" width="414" height="100"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How's your client handling IR35?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VmJ-I2-Jp9">
+                                        <rect key="frame" x="16" y="16" width="382" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="hvR-Bz-Vfd"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Slo-9Q-okP">
+                                        <rect key="frame" x="16" y="45" width="382" height="34"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T44-mh-bJh">
+                                                <rect key="frame" x="0.0" y="2" width="382" height="30"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="100" id="IJQ-gH-jkb"/>
+                                                </constraints>
+                                                <state key="normal" title="Share  your feedback on your client">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="4"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="subscribeBtnPressed:" destination="E9z-nU-T5t" eventType="touchUpInside" id="TFB-lR-CLn"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="0Xg-mW-yON"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.2416781187" green="0.49537926910000002" blue="0.4313674569" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstItem="Slo-9Q-okP" firstAttribute="top" secondItem="VmJ-I2-Jp9" secondAttribute="bottom" constant="8" id="7Cq-Ju-LNN"/>
+                                    <constraint firstItem="VmJ-I2-Jp9" firstAttribute="leading" secondItem="t7q-AM-W25" secondAttribute="leading" constant="16" id="QU3-Oh-96C"/>
+                                    <constraint firstAttribute="trailing" secondItem="Slo-9Q-okP" secondAttribute="trailing" constant="16" id="ajz-Ro-95Z"/>
+                                    <constraint firstItem="VmJ-I2-Jp9" firstAttribute="top" secondItem="t7q-AM-W25" secondAttribute="top" constant="16" id="eg9-yU-ddl"/>
+                                    <constraint firstAttribute="trailing" secondItem="VmJ-I2-Jp9" secondAttribute="trailing" constant="16" id="ky5-gT-VRF"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="qjX-7Y-SdB"/>
+                                    <constraint firstItem="Slo-9Q-okP" firstAttribute="leading" secondItem="t7q-AM-W25" secondAttribute="leading" constant="16" id="zzw-xj-OB4"/>
+                                    <constraint firstAttribute="height" constant="100" id="zzx-Ux-7Tt"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zE1-j9-VyY">
+                                <rect key="frame" x="0.0" y="124" width="414" height="589"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CompanyCell" focusStyle="custom" rowHeight="67" id="Zul-Xj-HBa" customClass="CompanyTableViewCell" customModule="OffPayroll" customModuleProvider="target">
@@ -682,8 +734,8 @@
                                                         </stackView>
                                                     </subviews>
                                                 </stackView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="question-circle-solid" translatesAutoresizingMaskIntoConstraints="NO" id="bas-4p-gMb">
-                                                    <rect key="frame" x="353" y="24.666666666666664" width="18" height="18"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="question-circle-solid" translatesAutoresizingMaskIntoConstraints="NO" id="bas-4p-gMb">
+                                                    <rect key="frame" x="353" y="24.666666666666671" width="18" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="18" id="JOl-rM-f22"/>
                                                         <constraint firstAttribute="width" constant="18" id="fAe-Vk-f71"/>
@@ -713,6 +765,19 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="t7q-AM-W25" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="116-QB-V2G"/>
+                            <constraint firstItem="t7q-AM-W25" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="4tM-LT-Bfb"/>
+                            <constraint firstItem="zE1-j9-VyY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6R1-u9-2Oy"/>
+                            <constraint firstItem="zE1-j9-VyY" firstAttribute="top" secondItem="pPy-D0-JSS" secondAttribute="bottom" id="LG3-YD-v4h"/>
+                            <constraint firstItem="pPy-D0-JSS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fAH-t7-Ls5"/>
+                            <constraint firstItem="pPy-D0-JSS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="rXE-8A-Qew"/>
+                            <constraint firstItem="t7q-AM-W25" firstAttribute="top" secondItem="zE1-j9-VyY" secondAttribute="bottom" id="snx-lK-eNN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="t7q-AM-W25" secondAttribute="trailing" id="tfF-qe-mcg"/>
+                            <constraint firstItem="pPy-D0-JSS" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="xLi-K3-IDX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zE1-j9-VyY" secondAttribute="trailing" id="xex-hq-QXm"/>
+                            <constraint firstItem="t7q-AM-W25" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yBR-U4-Dyv"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Clients" image="tab-building-solid-on" selectedImage="tab-building-solid-off" id="cyb-s1-xQI"/>
