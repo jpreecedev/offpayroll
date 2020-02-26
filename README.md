@@ -11,3 +11,8 @@ Contact was made with the owners of the site but they didn't respond. [Contact m
 We have a landing page! Check out the landing page at [https://jpreecedev.github.io/offpayroll/docs/](https://jpreecedev.github.io/offpayroll/docs/). (Strictly just for fun!)
 
 If you're double curious, we also have a video! [Check it out](https://jpreecedev.github.io/offpayroll/docs/offpayroll.mov).
+
+![Gallery 1](https://jpreecedev.github.io/offpayroll/docs/images/gallery-1.jpg "Gallery Image 1")
+![Gallery 2](https://jpreecedev.github.io/offpayroll/docs/images/gallery-1.jpg "Gallery Image 2")
+![Gallery 3](https://jpreecedev.github.io/offpayroll/docs/images/gallery-1.jpg "Gallery Image 3")
+![Gallery 4](https://jpreecedev.github.io/offpayroll/docs/images/gallery-1.jpg "Gallery Image 4")
